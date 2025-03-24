@@ -129,62 +129,81 @@ function initComments() {
   
   if (!commentsContainer) return;
   
-  // For demonstration purposes, we'll use mock data
-  // In a real implementation, this would fetch from an API
-  const mockComments = [
-    {
-      name: "Sarah Johnson",
-      timestamp: "2025-03-23T14:22:00",
-      text: "England would be so romantic! I can picture you two in a beautiful countryside venue."
-    },
-    {
-      name: "Michael Chen",
-      timestamp: "2025-03-23T16:45:00",
-      text: "Minnesota has the best venues! Plus, it's closer for most of your family, right?"
-    },
-    {
-      name: "Jessica Williams",
-      timestamp: "2025-03-23T18:10:00",
-      text: "LA has perfect weather year-round. No rain to worry about on your special day!"
-    },
-    {
-      name: "David Rodriguez",
-      timestamp: "2025-03-24T09:30:00",
-      text: "Have you considered a destination wedding in Hawaii? Just throwing it out there!"
-    }
-  ];
+  // Show loading message
+  commentsContainer.innerHTML = '<p class="comments-loading">Loading comments...</p>';
   
-  // In a real implementation, this would be:
-  // fetchComments()
-  //   .then(comments => {
-  //     renderComments(comments, commentsContainer);
-  //   })
-  //   .catch(error => {
-  //     commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
-  //   });
-  
-  // For now, we'll just use the mock data
-  setTimeout(() => {
-    renderComments(mockComments, commentsContainer);
-  }, 1000); // Simulate loading delay
+  // Fetch comments from the Google Apps Script web app
+  fetchComments()
+    .then(comments => {
+      renderComments(comments, commentsContainer);
+    })
+    .catch(error => {
+      commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
+      
+      // If we can't load comments from the API, fall back to mock data for now
+      console.warn('Falling back to mock data:', error);
+      
+      const mockComments = [
+        {
+          name: "Sarah Johnson",
+          timestamp: "2025-03-23T14:22:00",
+          text: "England would be so romantic! I can picture you two in a beautiful countryside venue."
+        },
+        {
+          name: "Michael Chen",
+          timestamp: "2025-03-23T16:45:00",
+          text: "Minnesota has the best venues! Plus, it's closer for most of your family, right?"
+        },
+        {
+          name: "Jessica Williams",
+          timestamp: "2025-03-23T18:10:00",
+          text: "LA has perfect weather year-round. No rain to worry about on your special day!"
+        },
+        {
+          name: "David Rodriguez",
+          timestamp: "2025-03-24T09:30:00",
+          text: "Have you considered a destination wedding in Hawaii? Just throwing it out there!"
+        }
+      ];
+      
+      // Use mock data as fallback
+      setTimeout(() => {
+        renderComments(mockComments, commentsContainer);
+      }, 1000);
+    });
 }
 
 /**
- * Fetch comments from the API
- * In a real implementation, this would connect to your backend
+ * Fetch comments from the Google Apps Script web app
+ * @return {Promise<Array>} Promise resolving to array of comments
  */
 async function fetchComments() {
-  // This is a placeholder for the actual API call
-  // const response = await fetch('https://your-backend-url.com/api/comments');
-  //
-  // if (!response.ok) {
-  //   throw new Error('Failed to fetch comments');
-  // }
-  //
-  // return await response.json();
+  // Replace with your actual Google Apps Script web app URL
+  // This URL will be provided after publishing your script as a web app
+  const WEBAPP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL';
   
-  // For now, just return mock data
-  return mockComments;
+  try {
+    const response = await fetch(WEBAPP_URL);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (!data.success) {
+      throw new Error(data.message || 'Failed to fetch comments');
+    }
+    
+    return data.comments.map(comment => ({
+      name: comment.name,
+      timestamp: comment.timestamp,
+      text: comment.text
+    }));
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    throw error;
+  }
 }
 
 /**

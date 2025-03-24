@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments Admin Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    
+    h1 {
+      color: #008080; /* Teal color to match website theme */
+      border-bottom: 2px solid #c0c0c0; /* Silver accent */
+      padding-bottom: 10px;
+    }
+    
+    .comment-card {
+      background-color: #f9f9f9;
+      border-left: 3px solid #008080;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .comment-author {
+      font-weight: bold;
+      color: #008080;
+      margin: 0;
+    }
+    
+    .comment-date {
+      color: #777;
+      font-size: 0.9em;
+    }
+    
+    .comment-location {
+      font-style: italic;
+      margin: 5px 0;
+      color: #555;
+    }
+    
+    .comment-text {
+      margin-top: 10px;
+    }
+    
+    .actions {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .approve-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .reject-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    
+    .refresh-btn {
+      background-color: #2196F3;
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .no-comments {
+      text-align: center;
+      padding: 30px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      color: #777;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+    
+    .success-message {
+      background-color: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      display: none;
+    }
+    
+    .error-message {
+      background-color: #f2dede;
+      color: #a94442;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comments Admin Interface</h1>
+  
+  <div id="message-container">
+    <div id="success-message" class="success-message"></div>
+    <div id="error-message" class="error-message"></div>
+  </div>
+  
+  <button id="refresh-btn" class="refresh-btn">Refresh Comments</button>
+  
+  <div id="comments-container">
+    <div id="loading" class="loading">Loading comments...</div>
+  </div>
+  
+  <script>
+    // Initialize the interface
+    document.addEventListener('DOMContentLoaded', function() {
+      loadComments();
+      
+      // Set up refresh button
+      document.getElementById('refresh-btn').addEventListener('click', loadComments);
+    });
+    
+    // Load pending comments
+    function loadComments() {
+      const commentsContainer = document.getElementById('comments-container');
+      const loadingElement = document.getElementById('loading');
+      
+      // Show loading message
+      commentsContainer.innerHTML = '<div id="loading" class="loading">Loading comments...</div>';
+      
+      // Call the server-side function to get pending comments
+      google.script.run
+        .withSuccessHandler(function(comments) {
+          // Hide loading message
+          commentsContainer.innerHTML = '';
+          
+          if (!comments || comments.length === 0) {
+            commentsContainer.innerHTML = '<div class="no-comments">No pending comments to review.</div>';
+            return;
+          }
+          
+          // Display each comment
+          comments.forEach(function(comment) {
+            const commentCard = document.createElement('div');
+            commentCard.className = 'comment-card';
+            commentCard.id = 'comment-' + comment.rowIndex;
+            
+            const timestamp = new Date(comment.timestamp);
+            const formattedDate = formatDate(timestamp);
+            
+            commentCard.innerHTML = `
+              <div class="comment-header">
+                <h3 class="comment-author">${escapeHtml(comment.name)}</h3>
+                <span class="comment-date">${formattedDate}</span>
+              </div>
+              <div class="comment-location">Location preference: ${escapeHtml(comment.location)}</div>
+              <div class="comment-text">${escapeHtml(comment.comment)}</div>
+              <div class="actions">
+                <button class="approve-btn" onclick="approveComment(${comment.rowIndex})">Approve</button>
+                <button class="reject-btn" onclick="rejectComment(${comment.rowIndex})">Reject</button>
+              </div>
+            `;
+            
+            commentsContainer.appendChild(commentCard);
+          });
+        })
+        .withFailureHandler(function(error) {
+          commentsContainer.innerHTML = `<div class="error-message">Error loading comments: ${error.message}</div>`;
+        })
+        .getPendingComments();
+    }
+    
+    // Approve a comment
+    function approveComment(rowIndex) {
+      const commentCard = document.getElementById('comment-' + rowIndex);
+      commentCard.style.opacity = '0.5';
+      
+      google.script.run
+        .withSuccessHandler(function(result) {
+          if (result.success) {
+            showSuccessMessage(result.message);
+            commentCard.remove();
+            
+            // Check if there are no more comments
+            if (document.querySelectorAll('.comment-card').length === 0) {
+              document.getElementById('comments-container').innerHTML = 
+                '<div class="no-comments">No pending comments to review.</div>';
+            }
+          } else {
+            showErrorMessage(result.message);
+            commentCard.style.opacity = '1';
+          }
+        })
+        .withFailureHandler(function(error) {
+          showErrorMessage('Error: ' + error.message);
+          commentCard.style.opacity = '1';
+        })
+        .approveComment(rowIndex);
+    }
+    
+    // Reject a comment
+    function rejectComment(rowIndex) {
+      const commentCard = document.getElementById('comment-' + rowIndex);
+      commentCard.style.opacity = '0.5';
+      
+      google.script.run
+        .withSuccessHandler(function(result) {
+          if (result.success) {
+            showSuccessMessage(result.message);
+            commentCard.remove();
+            
+            // Check if there are no more comments
+            if (document.querySelectorAll('.comment-card').length === 0) {
+              document.getElementById('comments-container').innerHTML = 
+                '<div class="no-comments">No pending comments to review.</div>';
+            }
+          } else {
+            showErrorMessage(result.message);
+            commentCard.style.opacity = '1';
+          }
+        })
+        .withFailureHandler(function(error) {
+          showErrorMessage('Error: ' + error.message);
+          commentCard.style.opacity = '1';
+        })
+        .rejectComment(rowIndex);
+    }
+    
+    // Format date
+    function formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      return date.toLocaleDateString('en-US', options);
+    }
+    
+    // Show success message
+    function showSuccessMessage(message) {
+      const successMessage = document.getElementById('success-message');
+      successMessage.textContent = message;
+      successMessage.style.display = 'block';
+      
+      // Hide after 3 seconds
+      setTimeout(function() {
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+    
+    // Show error message
+    function showErrorMessage(message) {
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.textContent = message;
+      errorMessage.style.display = 'block';
+      
+      // Hide after 5 seconds
+      setTimeout(function() {
+        errorMessage.style.display = 'none';
+      }, 5000);
+    }
+    
+    // Escape HTML to prevent XSS
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
