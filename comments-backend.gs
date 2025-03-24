@@ -12,8 +12,7 @@
 // Configuration
 const CONFIG = {
   // The ID of the Google Sheet containing form responses
-  // Replace this with your actual spreadsheet ID
-  SPREADSHEET_ID: 'YOUR_SPREADSHEET_ID_HERE',
+  SPREADSHEET_ID: '1DFiI7rxIE5n-aJOkegiwbb0vf2m_6PIioMkzjmokBKI',
   
   // The name of the sheet containing form responses
   RESPONSES_SHEET_NAME: 'Form Responses 1',
