@@ -23,10 +23,10 @@ const CONFIG = {
   // Column indices in the form responses sheet (0-based)
   COLUMNS: {
     TIMESTAMP: 0,      // Column A - Timestamp
-    NAME: 1,           // Column B - Name
-    LOCATION: 2,       // Column C - Location preference
-    COMMENT: 3,        // Column D - Comment/suggestion
-    APPROVED: 4,       // Column E - Approval status (will be added if not present)
+    LOCATION: 1,       // Column B - Which location would you prefer for our wedding
+    COMMENT: 2,        // Column C - This field fine-tunes the wedding model.
+    NAME: 3,           // Column D - Commenter Name
+    APPROVED: 4,       // Column E - Approval status
     DISPLAYED: 5       // Column F - Whether comment has been displayed (for tracking)
   },
   
@@ -206,9 +206,9 @@ function getApprovedComments() {
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
     approvedComments.push({
-      timestamp: row[0], // Timestamp
-      name: row[1],      // Name
-      text: row[2]       // Comment
+      timestamp: row[0], // Timestamp (Column A)
+      name: row[1],      // Name (Column B)
+      text: row[2]       // Comment (Column C)
     });
   }
   
@@ -227,10 +227,10 @@ function doGet(e) {
     'Access-Control-Allow-Origin': '*'
   };
   
-  // Check for admin access
-  if (e.parameter.admin === 'true') {
+  // Check for admin access (ensure e and e.parameter exist)
+  if (e && e.parameter && e.parameter.admin === 'true') {
     // Verify admin credentials
-    if (e.parameter.username === CONFIG.ADMIN_USERNAME && 
+    if (e.parameter.username === CONFIG.ADMIN_USERNAME &&
         e.parameter.password === CONFIG.ADMIN_PASSWORD) {
       return ContentService.createTextOutput(JSON.stringify({
         success: true,
@@ -262,7 +262,7 @@ function doPost(e) {
   const data = JSON.parse(e.postData.contents);
   
   // Verify admin credentials
-  if (data.username !== CONFIG.ADMIN_USERNAME || 
+  if (data.username !== CONFIG.ADMIN_USERNAME ||
       data.password !== CONFIG.ADMIN_PASSWORD) {
     return ContentService.createTextOutput(JSON.stringify({
       success: false,
@@ -286,4 +286,114 @@ function doPost(e) {
   
   return ContentService.createTextOutput(JSON.stringify(result))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * Debug function to log column headers from the form responses sheet
+ */
+function logColumnHeaders() {
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const sheet = ss.getSheetByName(CONFIG.RESPONSES_SHEET_NAME);
+  
+  // Get the headers from the first row
+  const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  
+  // Log each header with its index
+  for (let i = 0; i < headers.length; i++) {
+    Logger.log(`Column ${i} (${columnToLetter(i+1)}): "${headers[i]}"`);
+  }
+  
+  // Helper function to convert column number to letter (e.g., 1 -> A, 2 -> B)
+  function columnToLetter(column) {
+    let temp, letter = '';
+    while (column > 0) {
+      temp = (column - 1) % 26;
+      letter = String.fromCharCode(temp + 65) + letter;
+      column = (column - temp - 1) / 26;
+    }
+    return letter;
+  }
+}
+
+/**
+ * Debug function to log column headers from the approved comments sheet
+ */
+function logApprovedCommentsHeaders() {
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const sheet = ss.getSheetByName(CONFIG.APPROVED_COMMENTS_SHEET_NAME);
+  
+  if (!sheet) {
+    Logger.log("Approved Comments sheet not found!");
+    return;
+  }
+  
+  // Get the headers from the first row
+  const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  
+  // Log each header with its index
+  for (let i = 0; i < headers.length; i++) {
+    Logger.log(`Column ${i} (${columnToLetter(i+1)}): "${headers[i]}"`);
+  }
+  
+  // Helper function to convert column number to letter
+  function columnToLetter(column) {
+    let temp, letter = '';
+    while (column > 0) {
+      temp = (column - 1) % 26;
+      letter = String.fromCharCode(temp + 65) + letter;
+      column = (column - temp - 1) / 26;
+    }
+    return letter;
+  }
+}
+
+/**
+ * Debug function to test the approval process
+ */
+function debugApprovalProcess() {
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const responsesSheet = ss.getSheetByName(CONFIG.RESPONSES_SHEET_NAME);
+  const approvedSheet = ss.getSheetByName(CONFIG.APPROVED_COMMENTS_SHEET_NAME);
+  
+  // Log information about the sheets
+  Logger.log(`Responses sheet: ${responsesSheet ? 'Found' : 'Not found'}`);
+  Logger.log(`Approved Comments sheet: ${approvedSheet ? 'Found' : 'Not found'}`);
+  
+  // Get pending comments
+  const pendingComments = getPendingComments();
+  Logger.log(`Pending comments: ${pendingComments.length}`);
+  
+  // Log the first pending comment if available
+  if (pendingComments.length > 0) {
+    Logger.log(`First pending comment: ${JSON.stringify(pendingComments[0])}`);
+    
+    // Try to approve the first comment
+    const result = approveComment(pendingComments[0].rowIndex);
+    Logger.log(`Approval result: ${JSON.stringify(result)}`);
+    
+    // Check if the comment was added to the Approved Comments sheet
+    const approvedData = approvedSheet.getDataRange().getValues();
+    Logger.log(`Approved Comments rows: ${approvedData.length}`);
+    
+    // Log the last row if available
+    if (approvedData.length > 1) {
+      Logger.log(`Last approved comment: ${JSON.stringify(approvedData[approvedData.length - 1])}`);
+    }
+  }
+}
+
+/**
+ * Debug function to test getting approved comments
+ */
+function debugGetApprovedComments() {
+  const approvedComments = getApprovedComments();
+  Logger.log(`Number of approved comments: ${approvedComments.length}`);
+  
+  if (approvedComments.length > 0) {
+    Logger.log(`First approved comment: ${JSON.stringify(approvedComments[0])}`);
+  }
+  
+  // Test the web app endpoint
+  const webAppOutput = doGet({});
+  Logger.log(`Web app output: ${webAppOutput.getContent()}`);
 }
