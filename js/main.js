@@ -178,9 +178,8 @@ function initComments() {
  * @return {Promise<Array>} Promise resolving to array of comments
  */
 async function fetchComments() {
-  // Replace with your actual Google Apps Script web app URL
-  // This URL will be provided after publishing your script as a web app
-  const WEBAPP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL';
+  // Google Apps Script web app URL for fetching comments
+  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbw0fcUnFXQE2bA8EyS0TaoXZ5UZKpwuXp9utgtPet4occKTHZhw9KlpsGAEYCOpO2q1SQ/exec';
   
   try {
     const response = await fetch(WEBAPP_URL);
