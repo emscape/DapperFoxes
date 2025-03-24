@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavigation();
   initPoll();
   initPhotoGallery();
+  initComments();
 });
 
 /**
@@ -39,115 +40,14 @@ function initNavigation() {
  * Poll Functionality
  */
 function initPoll() {
-  const pollOptions = document.querySelectorAll('.poll__option');
-  const pollSubmit = document.querySelector('.poll__submit');
-  const pollResults = document.querySelector('.poll__results');
+  // The poll now uses Google Forms embedded in an iframe
+  // This function is kept as a placeholder for potential future enhancements
   
-  if (!pollOptions.length) return;
-  
-  // Handle option selection
-  pollOptions.forEach(option => {
-    option.addEventListener('click', function() {
-      // Remove selected class from all options
-      pollOptions.forEach(opt => opt.classList.remove('poll__option--selected'));
-      
-      // Add selected class to clicked option
-      this.classList.add('poll__option--selected');
-    });
-  });
-  
-  // Handle poll submission
-  if (pollSubmit) {
-    pollSubmit.addEventListener('click', function() {
-      const selectedOption = document.querySelector('.poll__option--selected');
-      
-      if (!selectedOption) {
-        alert('Please select an option before submitting.');
-        return;
-      }
-      
-      // In a real implementation, this would send data to a server
-      // For now, we'll just show mock results
-      
-      // Hide poll options and show results
-      document.querySelector('.poll__options').style.display = 'none';
-      pollSubmit.style.display = 'none';
-      
-      if (pollResults) {
-        // Mock results data (would come from server in real implementation)
-        const mockResults = {
-          'England': 35,
-          'LA': 25,
-          'Minnesota': 30,
-          'Other': 10
-        };
-        
-        // Create results HTML
-        let resultsHTML = '<h3>Poll Results</h3>';
-        resultsHTML += '<div class="poll__results-chart">';
-        
-        for (const [location, votes] of Object.entries(mockResults)) {
-          resultsHTML += `
-            <div class="poll__result">
-              <div class="poll__result-label">${location}</div>
-              <div class="poll__result-bar-container">
-                <div class="poll__result-bar" style="width: ${votes}%"></div>
-              </div>
-              <div class="poll__result-value">${votes}%</div>
-            </div>
-          `;
-        }
-        
-        resultsHTML += '</div>';
-        resultsHTML += '<p>Thank you for your vote!</p>';
-        
-        // Display results
-        pollResults.innerHTML = resultsHTML;
-        pollResults.style.display = 'block';
-        
-        // Store in localStorage that user has voted
-        localStorage.setItem('dapperFoxes_hasVoted', 'true');
-      }
-    });
-  }
-  
-  // Check if user has already voted
-  if (localStorage.getItem('dapperFoxes_hasVoted') === 'true' && pollResults) {
-    // In a real implementation, we would fetch actual results from server
-    // For now, just show the mock results directly
-    document.querySelector('.poll__options').style.display = 'none';
-    if (pollSubmit) pollSubmit.style.display = 'none';
-    
-    // Same mock results as above
-    const mockResults = {
-      'England': 35,
-      'LA': 25,
-      'Minnesota': 30,
-      'Other': 10
-    };
-    
-    // Create results HTML
-    let resultsHTML = '<h3>Poll Results</h3>';
-    resultsHTML += '<div class="poll__results-chart">';
-    
-    for (const [location, votes] of Object.entries(mockResults)) {
-      resultsHTML += `
-        <div class="poll__result">
-          <div class="poll__result-label">${location}</div>
-          <div class="poll__result-bar-container">
-            <div class="poll__result-bar" style="width: ${votes}%"></div>
-          </div>
-          <div class="poll__result-value">${votes}%</div>
-        </div>
-      `;
-    }
-    
-    resultsHTML += '</div>';
-    resultsHTML += '<p>You have already voted. Thank you!</p>';
-    
-    // Display results
-    pollResults.innerHTML = resultsHTML;
-    pollResults.style.display = 'block';
+  // Adjust iframe height based on content if needed
+  const googleFormIframe = document.querySelector('.google-form-container iframe');
+  if (googleFormIframe) {
+    // Add any iframe-specific functionality here if needed in the future
+    console.log('Google Form iframe loaded');
   }
 }
 
@@ -219,4 +119,94 @@ function formatDate(date) {
 function isValidEmail(email) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
+}
+
+/**
+ * Comments Functionality
+ */
+function initComments() {
+  const commentsContainer = document.getElementById('comments-list');
+  
+  if (!commentsContainer) return;
+  
+  // For demonstration purposes, we'll use mock data
+  // In a real implementation, this would fetch from an API
+  const mockComments = [
+    {
+      name: "Sarah Johnson",
+      timestamp: "2025-03-23T14:22:00",
+      text: "England would be so romantic! I can picture you two in a beautiful countryside venue."
+    },
+    {
+      name: "Michael Chen",
+      timestamp: "2025-03-23T16:45:00",
+      text: "Minnesota has the best venues! Plus, it's closer for most of your family, right?"
+    },
+    {
+      name: "Jessica Williams",
+      timestamp: "2025-03-23T18:10:00",
+      text: "LA has perfect weather year-round. No rain to worry about on your special day!"
+    },
+    {
+      name: "David Rodriguez",
+      timestamp: "2025-03-24T09:30:00",
+      text: "Have you considered a destination wedding in Hawaii? Just throwing it out there!"
+    }
+  ];
+  
+  // In a real implementation, this would be:
+  // fetchComments()
+  //   .then(comments => {
+  //     renderComments(comments, commentsContainer);
+  //   })
+  //   .catch(error => {
+  //     commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
+  //   });
+  
+  // For now, we'll just use the mock data
+  setTimeout(() => {
+    renderComments(mockComments, commentsContainer);
+  }, 1000); // Simulate loading delay
+}
+
+/**
+ * Fetch comments from the API
+ * In a real implementation, this would connect to your backend
+ */
+async function fetchComments() {
+  // This is a placeholder for the actual API call
+  // const response = await fetch('https://your-backend-url.com/api/comments');
+  //
+  // if (!response.ok) {
+  //   throw new Error('Failed to fetch comments');
+  // }
+  //
+  // return await response.json();
+  
+  // For now, just return mock data
+  return mockComments;
+}
+
+/**
+ * Render comments in the container
+ */
+function renderComments(comments, container) {
+  if (!comments || comments.length === 0) {
+    container.innerHTML = '<p class="comments-empty">No comments yet. Be the first to share your thoughts!</p>';
+    return;
+  }
+  
+  const commentsHTML = comments.map(comment => `
+    <div class="comment-card">
+      <div class="comment-header">
+        <h3 class="comment-author">${comment.name}</h3>
+        <span class="comment-date">${formatDate(new Date(comment.timestamp))}</span>
+      </div>
+      <div class="comment-body">
+        <p>${comment.text}</p>
+      </div>
+    </div>
+  `).join('');
+  
+  container.innerHTML = commentsHTML;
 }
