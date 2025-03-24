@@ -127,11 +127,11 @@
   </div>
   
   <button id="refresh-btn" class="refresh-btn">Refresh Comments</button>
+  <button id="debug-btn" class="refresh-btn" style="background-color: #ff9800;">Debug</button>
   
   <div id="comments-container">
     <div id="loading" class="loading">Loading comments...</div>
   </div>
-  
   <script>
     // Initialize the interface
     document.addEventListener('DOMContentLoaded', function() {
@@ -139,6 +139,25 @@
       
       // Set up refresh button
       document.getElementById('refresh-btn').addEventListener('click', loadComments);
+      
+      // Set up debug button
+      document.getElementById('debug-btn').addEventListener('click', debugComments);
+    });
+    
+    // Debug function to check what's happening
+    function debugComments() {
+      const commentsContainer = document.getElementById('comments-container');
+      commentsContainer.innerHTML = '<div id="loading" class="loading">Running debug...</div>';
+      
+      google.script.run
+        .withSuccessHandler(function(result) {
+          commentsContainer.innerHTML = `<pre style="background-color: #f5f5f5; padding: 15px; overflow: auto; max-height: 400px;">${JSON.stringify(result, null, 2)}</pre>`;
+        })
+        .withFailureHandler(function(error) {
+          commentsContainer.innerHTML = `<div class="error-message">Debug error: ${error.message}</div>`;
+        })
+        .debugAdminInterface();
+    }
     });
     
     // Load pending comments
