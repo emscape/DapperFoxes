@@ -397,3 +397,23 @@ function debugGetApprovedComments() {
   const webAppOutput = doGet({});
   Logger.log(`Web app output: ${webAppOutput.getContent()}`);
 }
+
+/**
+ * Debug function to check what's happening in the admin interface
+ */
+function debugAdminInterface() {
+  // Get pending comments
+  const pendingComments = getPendingComments();
+  Logger.log(`Number of pending comments: ${pendingComments.length}`);
+  
+  // Check if any comments have the Approved column empty
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const sheet = ss.getSheetByName(CONFIG.RESPONSES_SHEET_NAME);
+  const data = sheet.getDataRange().getValues();
+  
+  // Log each row's approval status
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    Logger.log(`Row ${i+1}: Name=${row[CONFIG.COLUMNS.NAME]}, Approved="${row[CONFIG.COLUMNS.APPROVED]}"`);
+  }
+}
