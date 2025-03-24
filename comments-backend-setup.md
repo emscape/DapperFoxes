@@ -24,7 +24,7 @@ The comments system uses:
    - Created a script to access form responses
    - Implemented an admin interface for approving/rejecting comments
    - Set up a web app endpoint to serve approved comments
-   - Web App URL: `https://script.google.com/macros/s/AKfycbw0fcUnFXQE2bA8EyS0TaoXZ5UZKpwuXp9utgtPet4occKTHZhw9KlpsGAEYCOpO2q1SQ/exec`
+   - Web App URL: `https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec`
 
 4. **Website Integration**
    - Updated `js/main.js` to fetch comments from the Google Apps Script web app
