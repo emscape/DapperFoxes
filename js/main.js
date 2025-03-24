@@ -179,7 +179,7 @@ function initComments() {
  */
 async function fetchComments() {
   // Google Apps Script web app URL for fetching comments
-  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbw0fcUnFXQE2bA8EyS0TaoXZ5UZKpwuXp9utgtPet4occKTHZhw9KlpsGAEYCOpO2q1SQ/exec';
+  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
   
   try {
     const response = await fetch(WEBAPP_URL);
