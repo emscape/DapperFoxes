@@ -139,37 +139,6 @@ function initComments() {
     })
     .catch(error => {
       commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
-      
-      // If we can't load comments from the API, fall back to mock data for now
-      console.warn('Falling back to mock data:', error);
-      
-      const mockComments = [
-        {
-          name: "Sarah Johnson",
-          timestamp: "2025-03-23T14:22:00",
-          text: "England would be so romantic! I can picture you two in a beautiful countryside venue."
-        },
-        {
-          name: "Michael Chen",
-          timestamp: "2025-03-23T16:45:00",
-          text: "Minnesota has the best venues! Plus, it's closer for most of your family, right?"
-        },
-        {
-          name: "Jessica Williams",
-          timestamp: "2025-03-23T18:10:00",
-          text: "LA has perfect weather year-round. No rain to worry about on your special day!"
-        },
-        {
-          name: "David Rodriguez",
-          timestamp: "2025-03-24T09:30:00",
-          text: "Have you considered a destination wedding in Hawaii? Just throwing it out there!"
-        }
-      ];
-      
-      // Use mock data as fallback
-      setTimeout(() => {
-        renderComments(mockComments, commentsContainer);
-      }, 1000);
     });
 }
 
@@ -178,11 +147,11 @@ function initComments() {
  * @return {Promise<Array>} Promise resolving to array of comments
  */
 async function fetchComments() {
-  // Google Apps Script web app URL for fetching comments
-  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
+  // Google Apps Script Web App URL
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
   
   try {
-    const response = await fetch(WEBAPP_URL);
+    const response = await fetch(WEB_APP_URL);
     
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
@@ -194,16 +163,22 @@ async function fetchComments() {
       throw new Error(data.message || 'Failed to fetch comments');
     }
     
-    return data.comments.map(comment => ({
-      name: comment.name,
-      timestamp: comment.timestamp,
-      text: comment.text
-    }));
+    return data.comments || [];
   } catch (error) {
     console.error('Error fetching comments:', error);
-    throw error;
+    
+    // Fallback to mock data if API fetch fails
+    console.log('Using fallback mock data');
+    return [
+      {
+        name: 'Emily (Mock Data)',
+        timestamp: new Date().toISOString(),
+        text: 'This is mock data because we could not fetch the real comments. Please make sure the Google Apps Script web app is deployed correctly.'
+      }
+    ];
   }
 }
+
 
 /**
  * Render comments in the container
