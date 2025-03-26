@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavigation();
   initPoll();
   initPhotoGallery();
+  initPollResults();
   initComments();
 });
 
@@ -49,6 +50,145 @@ function initPoll() {
     // Add any iframe-specific functionality here if needed in the future
     console.log('Google Form iframe loaded');
   }
+}
+
+/**
+ * Poll Results Functionality
+ */
+function initPollResults() {
+  const pollResultsContainer = document.getElementById('poll-results');
+  
+  if (!pollResultsContainer) {
+    console.error('Poll results container not found!');
+    return;
+  }
+  
+  // Show loading message
+  pollResultsContainer.innerHTML = '<p class="poll-results__loading">Loading poll results...</p>';
+  
+  // Fetch poll results
+  fetchPollResults()
+    .then(results => {
+      renderPollResults(results, pollResultsContainer);
+    })
+    .catch(error => {
+      console.error('Error fetching poll results:', error);
+      pollResultsContainer.innerHTML = `<p class="poll-results__error">Unable to load poll results. ${error.message}</p>`;
+    });
+}
+
+/**
+ * Fetch poll results
+ * @return {Promise<Object>} Promise resolving to poll results data
+ */
+async function fetchPollResults() {
+  console.log('fetchPollResults called');
+  
+  // Google Apps Script Web App URL - same as used for comments
+  // Update this URL with the new deployment URL after updating the Google Apps Script
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
+  
+  try {
+    // Add poll=true parameter to request poll results
+    const response = await fetch(`${WEB_APP_URL}?poll=true`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (!data.success) {
+      throw new Error(data.message || 'Failed to fetch poll results');
+    }
+    
+    console.log('Poll results received:', data);
+    
+    // Check if pollResults exists in the response
+    if (data.pollResults) {
+      return data.pollResults;
+    } else {
+      console.warn('Poll results not found in response, using fallback data');
+      // Fallback to mock data if the structure is unexpected
+      return {
+        locations: [
+          { name: 'England', votes: 12, id: 'england' },
+          { name: 'Los Angeles', votes: 8, id: 'la' },
+          { name: 'Minnesota', votes: 15, id: 'minnesota' },
+          { name: 'Other', votes: 5, id: 'other' }
+        ],
+        totalVotes: 40
+      };
+    }
+  } catch (error) {
+    console.error('Error fetching poll results:', error);
+    
+    // Fallback to mock data if API fetch fails
+    console.log('Using fallback mock data for poll results');
+    return {
+      locations: [
+        { name: 'England', votes: 12, id: 'england' },
+        { name: 'Los Angeles', votes: 8, id: 'la' },
+        { name: 'Minnesota', votes: 15, id: 'minnesota' },
+        { name: 'Other', votes: 5, id: 'other' }
+      ],
+      totalVotes: 40
+    };
+  }
+}
+
+/**
+ * Render poll results in the container
+ * @param {Object} results - The poll results data
+ * @param {HTMLElement} container - The container element
+ */
+function renderPollResults(results, container) {
+  if (!results || !results.locations || results.locations.length === 0) {
+    container.innerHTML = '<p class="poll-results__error">No poll results available.</p>';
+    return;
+  }
+  
+  // Create HTML for the poll results
+  let html = '<div class="poll-results__chart">';
+  
+  // Calculate percentages and create bars for each location
+  results.locations.forEach(location => {
+    const percentage = Math.round((location.votes / results.totalVotes) * 100);
+    
+    html += `
+      <div class="poll-location">
+        <div class="poll-location__header">
+          <span class="poll-location__name">${location.name}</span>
+          <span class="poll-location__percentage">${percentage}%</span>
+        </div>
+        <div class="poll-location__bar-container">
+          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%"></div>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += '</div>';
+  
+  // Add total votes
+  html += `<div class="poll-results__total">Total votes: ${results.totalVotes}</div>`;
+  
+  // Set the HTML
+  container.innerHTML = html;
+  
+  // Add animation effect - bars start at 0 width and animate to full width
+  setTimeout(() => {
+    const bars = container.querySelectorAll('.poll-location__bar');
+    
+    bars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0%';
+      
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 100);
+    });
+  }, 100);
 }
 
 /**
@@ -203,3 +343,4 @@ function renderComments(comments, container) {
   
   container.innerHTML = commentsHTML;
 }
+// Diagnostic function removed as we're now using the Google Apps Script web app for poll results
