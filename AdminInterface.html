@@ -135,135 +135,367 @@
   <script>
     // Initialize the interface
     document.addEventListener('DOMContentLoaded', function() {
-      loadComments();
+      // Check if google.script.run is available
+      if (typeof google === 'undefined' || typeof google.script === 'undefined' || typeof google.script.run === 'undefined') {
+        document.getElementById('comments-container').innerHTML =
+          '<div class="error-message">Error: google.script.run is not available. This interface must be run from Google Apps Script.</div>';
+        return;
+      }
+      
+      // Show initial status
+      document.getElementById('comments-container').innerHTML =
+        '<div class="loading">Interface loaded. Click "Refresh Comments" to load pending comments.</div>';
       
       // Set up refresh button
       document.getElementById('refresh-btn').addEventListener('click', loadComments);
       
       // Set up debug button
       document.getElementById('debug-btn').addEventListener('click', debugComments);
+      
+      // Add a raw data button
+      const rawDataBtn = document.createElement('button');
+      rawDataBtn.id = 'raw-data-btn';
+      rawDataBtn.className = 'refresh-btn';
+      rawDataBtn.style.backgroundColor = '#9c27b0';
+      rawDataBtn.textContent = 'Show Raw Data';
+      rawDataBtn.addEventListener('click', showRawData);
+      
+      // Insert the raw data button after the debug button
+      const debugBtn = document.getElementById('debug-btn');
+      debugBtn.parentNode.insertBefore(rawDataBtn, debugBtn.nextSibling);
+      
+      // Auto-run debug on load to check if communication works
+      setTimeout(function() {
+        document.getElementById('comments-container').innerHTML +=
+          '<div>Attempting automatic debug on page load...</div>';
+        debugComments();
+      }, 1000);
     });
+    
+    // Function to show raw data from the spreadsheet
+    function showRawData() {
+      const commentsContainer = document.getElementById('comments-container');
+      commentsContainer.innerHTML = '<div id="loading" class="loading">Loading raw data...</div>';
+      
+      try {
+        console.log('Attempting to call getRawData...');
+        
+        // Add a direct message to the container
+        commentsContainer.innerHTML += '<div>Calling google.script.run.getRawData()...</div>';
+        
+        // Create a timeout to detect if the call is hanging
+        const rawDataTimeout = setTimeout(function() {
+          commentsContainer.innerHTML += '<div class="error-message">Raw data call timed out after 10 seconds. The server may not be responding.</div>';
+        }, 10000);
+        
+        // Add a direct test message to the container
+        commentsContainer.innerHTML += '<div>Testing direct HTML output...</div>';
+        
+        // Try a simple function call first
+        google.script.run
+          .withSuccessHandler(function(result) {
+            // Clear the timeout
+            clearTimeout(rawDataTimeout);
+            
+            // Add a direct success message
+            commentsContainer.innerHTML += '<div class="success-message" style="display: block;">Simple function call succeeded!</div>';
+            
+            // Now try the actual getRawData call
+            commentsContainer.innerHTML += '<div>Now calling getRawData...</div>';
+            
+            google.script.run
+              .withSuccessHandler(function(result) {
+                console.log('Raw data received:', result);
+                
+                commentsContainer.innerHTML = `
+                  <div class="success-message" style="display: block;">Raw Data Retrieved</div>
+                  <pre style="background-color: #f5f5f5; padding: 15px; overflow: auto; max-height: 400px;">${JSON.stringify(result, null, 2)}</pre>
+                `;
+              })
+              .withFailureHandler(function(error) {
+                console.error('Raw data call failed:', error);
+                
+                commentsContainer.innerHTML = `
+                  <div class="error-message" style="display: block;">Error getting raw data: ${error ? error.message : 'Unknown error'}</div>
+                `;
+              })
+              .getRawData();
+          })
+          .withFailureHandler(function(error) {
+            // Clear the timeout
+            clearTimeout(rawDataTimeout);
+            
+            console.error('Simple function call failed:', error);
+            
+            commentsContainer.innerHTML = `
+              <div class="error-message" style="display: block;">Simple function call failed: ${error ? error.message : 'Unknown error'}</div>
+            `;
+          })
+          .checkPermissions();
+      } catch (e) {
+        console.error('Exception in showRawData:', e);
+        commentsContainer.innerHTML = `<div class="error-message" style="display: block;">Exception in showRawData: ${e.message}</div>`;
+      }
+    }
     
     // Debug function to check what's happening
     function debugComments() {
       const commentsContainer = document.getElementById('comments-container');
       commentsContainer.innerHTML = '<div id="loading" class="loading">Running debug...</div>';
       
-      google.script.run
-        .withSuccessHandler(function(result) {
-          commentsContainer.innerHTML = `<pre style="background-color: #f5f5f5; padding: 15px; overflow: auto; max-height: 400px;">${JSON.stringify(result, null, 2)}</pre>`;
-        })
-        .withFailureHandler(function(error) {
-          commentsContainer.innerHTML = `<div class="error-message">Debug error: ${error.message}</div>`;
-        })
-        .debugAdminInterface();
+      try {
+        // Log to console for debugging
+        console.log('Attempting to call debugAdminInterface...');
+        
+        // Add a visible message
+        commentsContainer.innerHTML += '<div>Calling google.script.run.debugAdminInterface()...</div>';
+        
+        // Create a timeout to detect if the call is hanging
+        const debugTimeout = setTimeout(function() {
+          commentsContainer.innerHTML += '<div class="error-message">Debug call timed out after 10 seconds. The server may not be responding.</div>';
+        }, 10000);
+        
+        google.script.run
+          .withSuccessHandler(function(result) {
+            // Clear the timeout
+            clearTimeout(debugTimeout);
+            
+            // Log success
+            console.log('Debug call succeeded:', result);
+            
+            // Check for permission error
+            if (result.permissionError) {
+              commentsContainer.innerHTML = `
+                <div class="error-message">Permission Error: ${result.message}</div>
+                <div style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+                  <h3>How to Fix Permission Issues:</h3>
+                  <ol>
+                    <li>Make sure you're logged into the correct Google account</li>
+                    <li>Open the Google Sheet directly at <a href="https://docs.google.com/spreadsheets/d/${result.spreadsheetId}" target="_blank">this link</a></li>
+                    <li>In the Google Apps Script editor, click on "Run" > "Run function" > "checkPermissions"</li>
+                    <li>When prompted, click "Review permissions" and then "Allow"</li>
+                    <li>Return to this interface and click "Debug" again</li>
+                  </ol>
+                </div>
+              `;
+              return;
+            }
+            
+            // Display the result
+            commentsContainer.innerHTML = `
+              <div class="success-message">Debug successful!</div>
+              <pre style="background-color: #f5f5f5; padding: 15px; overflow: auto; max-height: 400px;">${JSON.stringify(result, null, 2)}</pre>
+            `;
+            
+            // If we have pending comments, show a message
+            if (result && result.pendingComments && result.pendingComments.length > 0) {
+              commentsContainer.innerHTML += `
+                <div class="success-message">
+                  Found ${result.pendingComments.length} pending comments!
+                  Click "Refresh Comments" to load them.
+                </div>
+              `;
+            }
+          })
+          .withFailureHandler(function(error) {
+            // Clear the timeout
+            clearTimeout(debugTimeout);
+            
+            // Log error
+            console.error('Debug call failed:', error);
+            
+            // Check if it's an authorization error
+            if (error && error.message && (error.message.includes("Authorization") || error.message.includes("PERMISSION_DENIED"))) {
+              commentsContainer.innerHTML = `
+                <div class="error-message">Authorization Error: ${error.message}</div>
+                <div style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+                  <h3>How to Fix Authorization Issues:</h3>
+                  <ol>
+                    <li>Make sure you're logged into the correct Google account</li>
+                    <li>In the Google Apps Script editor, click on "Run" > "Run function" > "checkPermissions"</li>
+                    <li>When prompted, click "Review permissions" and then "Allow"</li>
+                    <li>The script needs to be properly deployed as a web app:</li>
+                    <ol>
+                      <li>In the Google Apps Script editor, click on "Deploy" > "New deployment"</li>
+                      <li>Select "Web app" as the deployment type</li>
+                      <li>Set "Execute as" to "Me"</li>
+                      <li>Set "Who has access" to "Anyone" or "Anyone, even anonymous"</li>
+                      <li>Click "Deploy" and copy the web app URL</li>
+                      <li>Open the web app URL in a new tab and authorize it when prompted</li>
+                    </ol>
+                    <li>Return to this interface and click "Debug" again</li>
+                  </ol>
+                </div>
+              `;
+              return;
+            }
+            
+            commentsContainer.innerHTML = `
+              <div class="error-message">Debug error: ${error ? error.message : 'Unknown error'}</div>
+              <div>Check the browser console and Google Apps Script logs for more details.</div>
+            `;
+          })
+          .debugAdminInterface();
+      } catch (e) {
+        console.error('Exception in debugComments:', e);
+        commentsContainer.innerHTML = `<div class="error-message">Exception in debugComments: ${e.message}</div>`;
+      }
     }
-    });
     
     // Load pending comments
     function loadComments() {
       const commentsContainer = document.getElementById('comments-container');
-      const loadingElement = document.getElementById('loading');
       
       // Show loading message
       commentsContainer.innerHTML = '<div id="loading" class="loading">Loading comments...</div>';
       
-      // Call the server-side function to get pending comments
-      google.script.run
-        .withSuccessHandler(function(comments) {
-          // Hide loading message
-          commentsContainer.innerHTML = '';
-          
-          if (!comments || comments.length === 0) {
-            commentsContainer.innerHTML = '<div class="no-comments">No pending comments to review.</div>';
-            return;
-          }
-          
-          // Display each comment
-          comments.forEach(function(comment) {
-            const commentCard = document.createElement('div');
-            commentCard.className = 'comment-card';
-            commentCard.id = 'comment-' + comment.rowIndex;
+      try {
+        // Log to console for debugging
+        console.log('Attempting to call getPendingComments...');
+        
+        // Add a visible message
+        commentsContainer.innerHTML += '<div>Calling google.script.run.getPendingComments()...</div>';
+        
+        // Create a timeout to detect if the call is hanging
+        const loadTimeout = setTimeout(function() {
+          commentsContainer.innerHTML += '<div class="error-message">Load call timed out after 10 seconds. The server may not be responding.</div>';
+        }, 10000);
+        
+        // Call the server-side function to get pending comments
+        google.script.run
+          .withSuccessHandler(function(comments) {
+            // Clear the timeout
+            clearTimeout(loadTimeout);
             
-            const timestamp = new Date(comment.timestamp);
-            const formattedDate = formatDate(timestamp);
+            // Log success
+            console.log('Load comments succeeded:', comments);
             
-            commentCard.innerHTML = `
-              <div class="comment-header">
-                <h3 class="comment-author">${escapeHtml(comment.name)}</h3>
-                <span class="comment-date">${formattedDate}</span>
-              </div>
-              <div class="comment-location">Location preference: ${escapeHtml(comment.location)}</div>
-              <div class="comment-text">${escapeHtml(comment.comment)}</div>
-              <div class="actions">
-                <button class="approve-btn" onclick="approveComment(${comment.rowIndex})">Approve</button>
-                <button class="reject-btn" onclick="rejectComment(${comment.rowIndex})">Reject</button>
-              </div>
+            // Hide loading message
+            commentsContainer.innerHTML = '';
+            
+            if (!comments || comments.length === 0) {
+              commentsContainer.innerHTML = '<div class="no-comments">No pending comments to review.</div>';
+              return;
+            }
+            
+            // Display each comment
+            comments.forEach(function(comment) {
+              const commentCard = document.createElement('div');
+              commentCard.className = 'comment-card';
+              commentCard.id = 'comment-' + comment.rowIndex;
+              
+              const timestamp = new Date(comment.timestamp);
+              const formattedDate = formatDate(timestamp);
+              
+              commentCard.innerHTML = `
+                <div class="comment-header">
+                  <h3 class="comment-author">${escapeHtml(comment.name)}</h3>
+                  <span class="comment-date">${formattedDate}</span>
+                </div>
+                <div class="comment-location">Location preference: ${escapeHtml(comment.location)}</div>
+                <div class="comment-text">${escapeHtml(comment.comment)}</div>
+                <div class="actions">
+                  <button class="approve-btn" onclick="approveComment(${comment.rowIndex})">Approve</button>
+                  <button class="reject-btn" onclick="rejectComment(${comment.rowIndex})">Reject</button>
+                </div>
+              `;
+              
+              commentsContainer.appendChild(commentCard);
+            });
+          })
+          .withFailureHandler(function(error) {
+            // Clear the timeout
+            clearTimeout(loadTimeout);
+            
+            // Log error
+            console.error('Load comments failed:', error);
+            
+            commentsContainer.innerHTML = `
+              <div class="error-message">Error loading comments: ${error ? error.message : 'Unknown error'}</div>
+              <div>Check the browser console and Google Apps Script logs for more details.</div>
             `;
-            
-            commentsContainer.appendChild(commentCard);
-          });
-        })
-        .withFailureHandler(function(error) {
-          commentsContainer.innerHTML = `<div class="error-message">Error loading comments: ${error.message}</div>`;
-        })
-        .getPendingComments();
+          })
+          .getPendingComments();
+      } catch (e) {
+        console.error('Exception in loadComments:', e);
+        commentsContainer.innerHTML = `<div class="error-message">Exception in loadComments: ${e.message}</div>`;
+      }
     }
     
     // Approve a comment
     function approveComment(rowIndex) {
       const commentCard = document.getElementById('comment-' + rowIndex);
+      if (!commentCard) {
+        showErrorMessage('Error: Comment card not found for row ' + rowIndex);
+        return;
+      }
+      
       commentCard.style.opacity = '0.5';
       
-      google.script.run
-        .withSuccessHandler(function(result) {
-          if (result.success) {
-            showSuccessMessage(result.message);
-            commentCard.remove();
-            
-            // Check if there are no more comments
-            if (document.querySelectorAll('.comment-card').length === 0) {
-              document.getElementById('comments-container').innerHTML = 
-                '<div class="no-comments">No pending comments to review.</div>';
+      try {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            if (result.success) {
+              showSuccessMessage(result.message);
+              commentCard.remove();
+              
+              // Check if there are no more comments
+              if (document.querySelectorAll('.comment-card').length === 0) {
+                document.getElementById('comments-container').innerHTML =
+                  '<div class="no-comments">No pending comments to review.</div>';
+              }
+            } else {
+              showErrorMessage(result.message || 'Unknown error approving comment');
+              commentCard.style.opacity = '1';
             }
-          } else {
-            showErrorMessage(result.message);
+          })
+          .withFailureHandler(function(error) {
+            showErrorMessage('Error: ' + (error ? error.message : 'Unknown error'));
             commentCard.style.opacity = '1';
-          }
-        })
-        .withFailureHandler(function(error) {
-          showErrorMessage('Error: ' + error.message);
-          commentCard.style.opacity = '1';
-        })
-        .approveComment(rowIndex);
+          })
+          .approveComment(rowIndex);
+      } catch (e) {
+        showErrorMessage('Exception in approveComment: ' + e.message);
+        commentCard.style.opacity = '1';
+      }
     }
     
     // Reject a comment
     function rejectComment(rowIndex) {
       const commentCard = document.getElementById('comment-' + rowIndex);
+      if (!commentCard) {
+        showErrorMessage('Error: Comment card not found for row ' + rowIndex);
+        return;
+      }
+      
       commentCard.style.opacity = '0.5';
       
-      google.script.run
-        .withSuccessHandler(function(result) {
-          if (result.success) {
-            showSuccessMessage(result.message);
-            commentCard.remove();
-            
-            // Check if there are no more comments
-            if (document.querySelectorAll('.comment-card').length === 0) {
-              document.getElementById('comments-container').innerHTML = 
-                '<div class="no-comments">No pending comments to review.</div>';
+      try {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            if (result.success) {
+              showSuccessMessage(result.message);
+              commentCard.remove();
+              
+              // Check if there are no more comments
+              if (document.querySelectorAll('.comment-card').length === 0) {
+                document.getElementById('comments-container').innerHTML =
+                  '<div class="no-comments">No pending comments to review.</div>';
+              }
+            } else {
+              showErrorMessage(result.message || 'Unknown error rejecting comment');
+              commentCard.style.opacity = '1';
             }
-          } else {
-            showErrorMessage(result.message);
+          })
+          .withFailureHandler(function(error) {
+            showErrorMessage('Error: ' + (error ? error.message : 'Unknown error'));
             commentCard.style.opacity = '1';
-          }
-        })
-        .withFailureHandler(function(error) {
-          showErrorMessage('Error: ' + error.message);
-          commentCard.style.opacity = '1';
-        })
-        .rejectComment(rowIndex);
+          })
+          .rejectComment(rowIndex);
+      } catch (e) {
+        showErrorMessage('Exception in rejectComment: ' + e.message);
+        commentCard.style.opacity = '1';
+      }
     }
     
     // Format date
