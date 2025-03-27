@@ -1,0 +1,567 @@
+/**
+ * DapperFoxes Wedding Website
+ * Main JavaScript File
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded event fired');
+  
+  // Initialize components
+  console.log('Initializing components...');
+  initNavigation();
+  initPoll();
+  initPhotoGallery();
+  initPollResults();
+  initComments();
+  console.log('All components initialized');
+});
+
+/**
+ * Mobile Navigation Toggle
+ */
+function initNavigation() {
+  const navToggle = document.querySelector('.nav__toggle');
+  const navList = document.querySelector('.nav__list');
+  
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      navList.classList.toggle('nav__list--open');
+    });
+  }
+  
+  // Add active class to current page in navigation
+  const currentPage = window.location.pathname.split('/').pop();
+  const navLinks = document.querySelectorAll('.nav__link');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('nav__link--active');
+    }
+  });
+}
+
+/**
+ * Poll Functionality
+ */
+function initPoll() {
+  // The poll now uses Google Forms embedded in an iframe
+  // This function is kept as a placeholder for potential future enhancements
+  
+  // Adjust iframe height based on content if needed
+  const googleFormIframe = document.querySelector('.google-form-container iframe');
+  if (googleFormIframe) {
+    // Add any iframe-specific functionality here if needed in the future
+    console.log('Google Form iframe loaded');
+  }
+}
+
+/**
+ * Poll Results Functionality
+ */
+function initPollResults() {
+  console.log('initPollResults called');
+  const pollResultsContainer = document.getElementById('poll-results');
+  
+  console.log('Poll results container:', pollResultsContainer);
+  
+  if (!pollResultsContainer) {
+    console.error('Poll results container not found!');
+    return;
+  }
+  
+  // Show loading message
+  pollResultsContainer.innerHTML = '<p class="poll-results__loading">Loading poll results...</p>';
+  
+  // Fetch poll results
+  console.log('Fetching poll results...');
+  fetchPollResults()
+    .then(results => {
+      console.log('Poll results received:', results);
+      renderPollResults(results, pollResultsContainer);
+    })
+    .catch(error => {
+      console.error('Error fetching poll results:', error);
+      pollResultsContainer.innerHTML = `<p class="poll-results__error">Unable to load poll results. ${error.message}</p>`;
+    });
+}
+
+/**
+ * Fetch poll results from the Google Apps Script web app
+ * @return {Promise<Object>} Promise resolving to poll results data
+ */
+async function fetchPollResults() {
+  console.log('fetchPollResults called');
+  
+  // Google Apps Script Web App URL - same as used for comments
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
+  
+  try {
+    console.log('Fetching poll results from:', WEB_APP_URL);
+    const response = await fetch(WEB_APP_URL);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('Poll results data received:', data);
+    
+    if (!data.success) {
+      throw new Error(data.message || 'Failed to fetch poll results');
+    }
+    
+    // Extract location data from the comments
+    const results = parseVotesFromComments(data.comments || []);
+    console.log('Parsed poll results:', results);
+    
+    return results;
+  } catch (error) {
+    console.error('Error fetching poll results:', error);
+    
+    // Fallback to mock data if API fetch fails
+    console.log('Using fallback mock data for poll results');
+    return {
+      locations: [
+        { name: 'England', votes: 12, id: 'england' },
+        { name: 'Los Angeles', votes: 8, id: 'la' },
+        { name: 'Minnesota', votes: 15, id: 'minnesota' },
+        { name: 'Other', votes: 5, id: 'other' }
+      ],
+      totalVotes: 40
+    };
+  }
+}
+
+/**
+ * Parse votes from comments data
+ * @param {Array} comments - The comments data from the API
+ * @return {Object} Parsed poll results
+ */
+function parseVotesFromComments(comments) {
+  console.log('Parsing votes from comments:', comments);
+  
+  // Count votes for each location
+  const locationCounts = {};
+  let totalVotes = 0;
+  
+  comments.forEach(comment => {
+    // The location should be in the comment object
+    // The exact property name might vary based on your data structure
+    const location = comment.location || '';
+    
+    if (location && typeof location === 'string') {
+      locationCounts[location] = (locationCounts[location] || 0) + 1;
+      totalVotes++;
+    }
+  });
+  
+  console.log('Location counts:', locationCounts);
+  console.log('Total votes:', totalVotes);
+  
+  // Format the results
+  const locations = Object.keys(locationCounts).map(name => {
+    let id = name.toLowerCase().replace(/\s+/g, '-');
+    
+    // Map common locations to our predefined IDs
+    if (name.toLowerCase().includes('england')) id = 'england';
+    if (name.toLowerCase().includes('los angeles') || name.toLowerCase().includes('la')) id = 'la';
+    if (name.toLowerCase().includes('minnesota')) id = 'minnesota';
+    if (name.toLowerCase().includes('other')) id = 'other';
+    
+    return {
+      name,
+      votes: locationCounts[name],
+      id
+    };
+  });
+  
+  // Sort by votes (highest first)
+  locations.sort((a, b) => b.votes - a.votes);
+  
+  return {
+    locations,
+    totalVotes
+  };
+}
+
+/**
+ * Parse CSV data for poll results
+ * @param {string} csvText - The CSV text to parse
+ * @return {Object} Parsed poll results
+ */
+function parseCSVForPollResults(csvText) {
+  console.log('Parsing CSV for poll results');
+  
+  // Split CSV into rows
+  const rows = csvText.split('\n');
+  console.log(`Found ${rows.length} rows in CSV`);
+  
+  if (rows.length <= 1) {
+    console.warn('CSV has no data rows');
+    return { locations: [], totalVotes: 0 };
+  }
+  
+  // Find the header row to determine column indices
+  const headers = rows[0].split(',');
+  console.log('CSV headers:', headers);
+  
+  // Find the indices of relevant columns
+  const timestampIndex = headers.findIndex(h => h.toLowerCase().includes('timestamp'));
+  const locationIndex = headers.findIndex(h => h.toLowerCase().includes('location') || h.toLowerCase().includes('prefer'));
+  const nameIndex = headers.findIndex(h => h.toLowerCase().includes('name'));
+  
+  console.log(`Column indices - timestamp: ${timestampIndex}, location: ${locationIndex}, name: ${nameIndex}`);
+  
+  if (locationIndex === -1) {
+    console.error('Could not find location column in CSV');
+    return { locations: [], totalVotes: 0 };
+  }
+  
+  // Count votes for each location
+  const locationCounts = {};
+  let totalVotes = 0;
+  
+  // Skip header row
+  for (let i = 1; i < rows.length; i++) {
+    if (!rows[i].trim()) continue; // Skip empty rows
+    
+    const columns = rows[i].split(',');
+    if (columns.length <= locationIndex) continue; // Skip rows with insufficient columns
+    
+    const location = columns[locationIndex].trim();
+    if (location) {
+      locationCounts[location] = (locationCounts[location] || 0) + 1;
+      totalVotes++;
+    }
+  }
+  
+  console.log('Location counts:', locationCounts);
+  console.log('Total votes:', totalVotes);
+  
+  // Format the results
+  const locations = Object.keys(locationCounts).map(name => {
+    let id = name.toLowerCase().replace(/\s+/g, '-');
+    
+    // Map common locations to our predefined IDs
+    if (name.toLowerCase().includes('england')) id = 'england';
+    if (name.toLowerCase().includes('los angeles') || name.toLowerCase().includes('la')) id = 'la';
+    if (name.toLowerCase().includes('minnesota')) id = 'minnesota';
+    if (name.toLowerCase().includes('other')) id = 'other';
+    
+    return {
+      name,
+      votes: locationCounts[name],
+      id
+    };
+  });
+  
+  // Sort by votes (highest first)
+  locations.sort((a, b) => b.votes - a.votes);
+  
+  return {
+    locations,
+    totalVotes
+  };
+}
+
+// parseVotesFromComments function removed as it's no longer needed
+
+/**
+ * Render poll results in the container
+ * @param {Object} results - The poll results data
+ * @param {HTMLElement} container - The container element
+ */
+function renderPollResults(results, container) {
+  console.log('renderPollResults called with:', results);
+  
+  if (!results || !results.locations || results.locations.length === 0) {
+    console.error('No valid poll results data');
+    container.innerHTML = '<p class="poll-results__error">No poll results available.</p>';
+    return;
+  }
+  
+  // Create HTML for the poll results
+  let html = '<div class="poll-results__chart">';
+  
+  // Calculate percentages and create bars for each location
+  results.locations.forEach(location => {
+    const percentage = Math.round((location.votes / results.totalVotes) * 100);
+    console.log(`Rendering location: ${location.name}, votes: ${location.votes}, percentage: ${percentage}%`);
+    
+    html += `
+      <div class="poll-location">
+        <div class="poll-location__header">
+          <span class="poll-location__name">${location.name}</span>
+          <span class="poll-location__percentage">${percentage}%</span>
+        </div>
+        <div class="poll-location__bar-container">
+          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%"></div>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += '</div>';
+  
+  // Add total votes
+  html += `<div class="poll-results__total">Total votes: ${results.totalVotes}</div>`;
+  
+  console.log('Final HTML to be rendered:', html);
+  
+  // Set the HTML
+  container.innerHTML = html;
+  console.log('HTML set to container');
+  
+  // Add animation effect - bars start at 0 width and animate to full width
+  setTimeout(() => {
+    console.log('Starting animation');
+    const bars = container.querySelectorAll('.poll-location__bar');
+    console.log(`Found ${bars.length} bars to animate`);
+    
+    bars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0%';
+      
+      setTimeout(() => {
+        bar.style.width = width;
+        console.log(`Animated bar to width: ${width}`);
+      }, 100);
+    });
+  }, 100);
+}
+
+/**
+ * Photo Gallery Functionality
+ */
+function initPhotoGallery() {
+  // This would integrate with Google Albums API in the full implementation
+  // For the MVP, we'll just set up the structure and basic interaction
+  
+  const galleryItems = document.querySelectorAll('.gallery__item');
+  
+  if (!galleryItems.length) return;
+  
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const imgSrc = this.querySelector('img').getAttribute('src');
+      const imgAlt = this.querySelector('img').getAttribute('alt');
+      
+      // Create lightbox (simple implementation for MVP)
+      const lightbox = document.createElement('div');
+      lightbox.classList.add('lightbox');
+      
+      lightbox.innerHTML = `
+        <div class="lightbox__content">
+          <button class="lightbox__close">&times;</button>
+          <img src="${imgSrc}" alt="${imgAlt}" class="lightbox__img">
+          <div class="lightbox__caption">${imgAlt}</div>
+        </div>
+      `;
+      
+      // Add to body
+      document.body.appendChild(lightbox);
+      
+      // Prevent scrolling on body
+      document.body.style.overflow = 'hidden';
+      
+      // Close lightbox when clicking close button or outside the image
+      lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      function closeLightbox() {
+        document.body.removeChild(lightbox);
+        document.body.style.overflow = '';
+      }
+    });
+  });
+}
+
+/**
+ * Helper function to format date
+ * @param {Date} date - Date object to format
+ * @return {string} Formatted date string
+ */
+function formatDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
+/**
+ * Helper function to validate email
+ * @param {string} email - Email to validate
+ * @return {boolean} Whether email is valid
+ */
+function isValidEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+/**
+ * Comments Functionality
+ */
+function initComments() {
+  const commentsContainer = document.getElementById('comments-list');
+  
+  if (!commentsContainer) return;
+  
+  // Show loading message
+  commentsContainer.innerHTML = '<p class="comments-loading">Loading comments...</p>';
+  
+  // Fetch comments (using mock data)
+  fetchComments()
+    .then(comments => {
+      renderComments(comments, commentsContainer);
+    })
+    .catch(error => {
+      commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
+    });
+}
+
+/**
+ * Fetch comments from the Google Sheets CSV
+ * @return {Promise<Array>} Promise resolving to array of comments
+ */
+/**
+ * Fetch comments from the Google Sheets CSV
+ * @return {Promise<Array>} Promise resolving to array of comments
+ */
+async function fetchComments() {
+  console.log('fetchComments called');
+  
+  // Google Sheets CSV URL - same as used for poll results
+  const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSOHsyRucu7GV5fPCIS28rfqyJmaGr0JL6uKY2mxl-Nek19QMjhTHl51QEb9tJHDgIcITopPplUnEuR/pub?gid=1432295459&single=true&output=csv';
+  
+  try {
+    console.log('Fetching CSV data for comments from:', CSV_URL);
+    const response = await fetch(CSV_URL);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+    
+    const csvText = await response.text();
+    console.log('CSV data received for comments:', csvText.substring(0, 100) + '...');
+    
+    // Parse CSV data for comments
+    const comments = parseCSVForComments(csvText);
+    console.log('Parsed comments:', comments);
+    
+    return comments;
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    
+    // Fallback to mock data if CSV fetch fails
+    console.log('Using fallback mock data for comments');
+    return [
+      {
+        name: 'Emily',
+        timestamp: new Date().toISOString(),
+        text: 'I vote for England! The countryside would be a beautiful backdrop for the wedding.'
+      },
+      {
+        name: 'Sean',
+        timestamp: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+        text: 'Minnesota has some gorgeous venues by the lakes!'
+      },
+      {
+        name: 'Alex',
+        timestamp: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
+        text: 'LA would be perfect - great weather year-round and so many venue options!'
+      },
+      {
+        name: 'Jordan',
+        timestamp: new Date(Date.now() - 259200000).toISOString(), // 3 days ago
+        text: 'Have you considered a destination wedding? Hawaii would be amazing!'
+      }
+    ];
+  }
+}
+
+/**
+ * Parse CSV data for comments
+ * @param {string} csvText - The CSV text to parse
+ * @return {Array} Parsed comments
+ */
+function parseCSVForComments(csvText) {
+  console.log('Parsing CSV for comments');
+  
+  // Split CSV into rows
+  const rows = csvText.split('\n');
+  console.log(`Found ${rows.length} rows in CSV`);
+  
+  if (rows.length <= 1) {
+    console.warn('CSV has no data rows');
+    return [];
+  }
+  
+  // Find the header row to determine column indices
+  const headers = rows[0].split(',');
+  console.log('CSV headers:', headers);
+  
+  // Find the indices of relevant columns
+  const timestampIndex = headers.findIndex(h => h.toLowerCase().includes('timestamp'));
+  const commentIndex = headers.findIndex(h => h.toLowerCase().includes('suggestion') || h.toLowerCase().includes('comment'));
+  const nameIndex = headers.findIndex(h => h.toLowerCase().includes('name'));
+  
+  console.log(`Column indices - timestamp: ${timestampIndex}, comment: ${commentIndex}, name: ${nameIndex}`);
+  
+  if (commentIndex === -1 || nameIndex === -1) {
+    console.error('Could not find required columns in CSV');
+    return [];
+  }
+  
+  const comments = [];
+  
+  // Skip header row
+  for (let i = 1; i < rows.length; i++) {
+    if (!rows[i].trim()) continue; // Skip empty rows
+    
+    const columns = rows[i].split(',');
+    if (columns.length <= Math.max(timestampIndex, commentIndex, nameIndex)) continue; // Skip rows with insufficient columns
+    
+    const timestamp = timestampIndex !== -1 ? columns[timestampIndex] : new Date().toISOString();
+    const name = columns[nameIndex].trim() || 'Anonymous';
+    const text = columns[commentIndex].trim();
+    
+    if (text) {
+      comments.push({
+        name,
+        timestamp,
+        text
+      });
+    }
+  }
+  
+  console.log(`Parsed ${comments.length} comments from CSV`);
+  return comments;
+}
+
+
+/**
+ * Render comments in the container
+ */
+function renderComments(comments, container) {
+  if (!comments || comments.length === 0) {
+    container.innerHTML = '<p class="comments-empty">No comments yet. Be the first to share your thoughts!</p>';
+    return;
+  }
+  
+  const commentsHTML = comments.map(comment => `
+    <div class="comment-card">
+      <div class="comment-header">
+        <h3 class="comment-author">${comment.name}</h3>
+        <span class="comment-date">${formatDate(new Date(comment.timestamp))}</span>
+      </div>
+      <div class="comment-body">
+        <p>${comment.text}</p>
+      </div>
+    </div>
+  `).join('');
+  
+  container.innerHTML = commentsHTML;
+}

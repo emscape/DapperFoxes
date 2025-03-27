@@ -20,13 +20,14 @@ The comments system uses:
    - Spreadsheet ID: `1DFiI7rxIE5n-aJOkegiwbb0vf2m_6PIioMkzjmokBKI`
    - Contains form responses
 
-3. **CSV Publication**
-   - Published the Google Sheet as CSV
-   - Made the data publicly accessible for reading
-   - CSV URL: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSOHsyRucu7GV5fPCIS28rfqyJmaGr0JL6uKY2mxl-Nek19QMjhTHl51QEb9tJHDgIcITopPplUnEuR/pub?gid=1432295459&single=true&output=csv`
+3. **Google Apps Script**
+   - Created a script to access form responses
+   - Implemented an admin interface for approving/rejecting comments
+   - Set up a web app endpoint to serve approved comments
+   - Web App URL: `https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec`
 
 4. **Website Integration**
-   - Updated `js/main.js` to fetch comments directly from the published CSV
+   - Updated `js/main.js` to fetch comments from the Google Apps Script web app
    - Added fallback to mock data if the API is unavailable
 
 ## How to Use
