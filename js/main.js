@@ -90,7 +90,10 @@ async function fetchPollResults() {
   
   try {
     // Add poll=true parameter to request poll results
-    const response = await fetch(`${WEB_APP_URL}?poll=true`);
+    // Add cache-busting parameter to prevent caching
+    const cacheBuster = new Date().getTime();
+    console.log('Fetching poll results with URL:', `${WEB_APP_URL}?poll=true&_=${cacheBuster}`);
+    const response = await fetch(`${WEB_APP_URL}?poll=true&_=${cacheBuster}`);
     
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
@@ -102,13 +105,26 @@ async function fetchPollResults() {
       throw new Error(data.message || 'Failed to fetch poll results');
     }
     
-    console.log('Poll results received:', data);
+    console.log('Response received:', data);
     
     // Check if pollResults exists in the response
-    if (data.pollResults) {
-      return data.pollResults;
+    if (data.locations) {
+      console.log('Poll results found:', data.locations);
+      return { locations: data.locations, totalVotes: data.totalVotes };
     } else {
       console.warn('Poll results not found in response, using fallback data');
+      console.log('Response data keys:', Object.keys(data));
+      
+      // Try to make a direct request to the server for poll results
+      console.log('Attempting direct request for poll results...');
+      const directResponse = await fetch(`${WEB_APP_URL}?poll=true&direct=true&_=${new Date().getTime()}`);
+      const directData = await directResponse.json();
+      console.log('Direct response received:', directData);
+      
+      if (directData.locations) {
+        console.log('Poll results found in direct response:', directData.locations);
+        return { locations: directData.locations, totalVotes: directData.totalVotes };
+      }
       // Fallback to mock data if the structure is unexpected
       return {
         locations: [
@@ -155,14 +171,20 @@ function renderPollResults(results, container) {
   results.locations.forEach(location => {
     const percentage = Math.round((location.votes / results.totalVotes) * 100);
     
+    // Set explicit colors with cache-busting
+    const color = location.id === 'england' ? '#FF3366' :
+                  location.id === 'la' ? '#FF6B35' :
+                  location.id === 'minnesota' ? '#3A5FCD' :
+                  stringToColor(location.name + new Date().getTime());
+    
     html += `
-      <div class="poll-location">
+      <div class="poll-location" style="--location-color: ${color}">
         <div class="poll-location__header">
           <span class="poll-location__name">${location.name}</span>
           <span class="poll-location__percentage">${percentage}%</span>
         </div>
         <div class="poll-location__bar-container">
-          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%"></div>
+          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%; background-color: ${location.id === 'other' ? stringToColor(location.name) : ''}"></div>
         </div>
       </div>
     `;
@@ -344,3 +366,17 @@ function renderComments(comments, container) {
   container.innerHTML = commentsHTML;
 }
 // Diagnostic function removed as we're now using the Google Apps Script web app for poll results
+
+/**
+ * Generate consistent color from string
+ * @param {string} str - Input string
+ * @return {string} HSL color string
+ */
+function stringToColor(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash % 360);
+  return `hsl(${hue}, 70%, 45%)`;
+}
