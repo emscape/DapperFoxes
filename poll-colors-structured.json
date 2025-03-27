@@ -1,0 +1,102 @@
+{
+  "warm": [
+    {
+      "name": "Burnt Sienna",
+      "hex": "#E97451"
+    },
+    {
+      "name": "Coral",
+      "hex": "#FF7F50"
+    },
+    {
+      "name": "Amber",
+      "hex": "#FFBF00"
+    },
+    {
+      "name": "Terracotta",
+      "hex": "#E2725B"
+    },
+    {
+      "name": "Rosewood",
+      "hex": "#65000B"
+    },
+    {
+      "name": "Dusty Peach",
+      "hex": "#E8C4B8"
+    },
+    {
+      "name": "Persimmon",
+      "hex": "#EC5800"
+    }
+  ],
+  "cool": [
+    {
+      "name": "Seafoam Green",
+      "hex": "#9FE2BF"
+    },
+    {
+      "name": "Turquoise",
+      "hex": "#40E0D0"
+    },
+    {
+      "name": "Slate Blue",
+      "hex": "#6A5ACD"
+    },
+    {
+      "name": "Mint",
+      "hex": "#98FF98"
+    },
+    {
+      "name": "Deep Navy",
+      "hex": "#000080"
+    },
+    {
+      "name": "Sky Blue",
+      "hex": "#87CEEB"
+    }
+  ],
+  "neutral": [
+    {
+      "name": "Champagne Gold",
+      "hex": "#F7E7CE"
+    },
+    {
+      "name": "Clay Gray",
+      "hex": "#B2A38B"
+    },
+    {
+      "name": "Moss Green",
+      "hex": "#8A9A5B"
+    },
+    {
+      "name": "Plum",
+      "hex": "#8E4585"
+    },
+    {
+      "name": "Soft Lavender",
+      "hex": "#D8BFD8"
+    },
+    {
+      "name": "Charcoal",
+      "hex": "#36454F"
+    },
+    {
+      "name": "Dusty Rose",
+      "hex": "#C08081"
+    }
+  ],
+  "fixed": {
+    "England": {
+      "name": "Evergreen",
+      "hex": "#2F4F4F"
+    },
+    "Minnesota": {
+      "name": "Ice Blue",
+      "hex": "#D6F6FF"
+    },
+    "Los Angeles": {
+      "name": "Sunset Orange",
+      "hex": "#FF6F3C"
+    }
+  }
+}

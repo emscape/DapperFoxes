@@ -424,25 +424,16 @@ ul li {
   transition: width 1s ease-in-out;
 }
 
-/* England - Rose Red */
-.poll-location__bar--england {
-  --location-color: #FF3366; /* England - Rose Red */
-}
-
-.poll-location__bar--la {
-  --location-color: #FF6B35 !important; /* LA - Sunset Orange */
-}
-
-.poll-location__bar--minnesota {
-  --location-color: #3A5FCD; /* MN - North Star Blue */
-}
-
+/* Poll location colors are set by JavaScript */
+.poll-location__bar--england,
+.poll-location__bar--la,
+.poll-location__bar--minnesota,
 .poll-location__bar--other {
-  /* Color will be set inline by JavaScript */
+  /* Colors will be set inline by JavaScript */
 }
 
 .poll-location__bar {
-  background-color: var(--location-color, var(--color-teal)) !important;
+  background-color: var(--location-color, var(--color-teal));
 }
 
 .poll-results__total {
