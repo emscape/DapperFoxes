@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Reset color indices to ensure fresh color rotation
+  resetColorIndices();
+  
   // Initialize components
   initNavigation();
   initPoll();
@@ -11,6 +14,42 @@ document.addEventListener('DOMContentLoaded', function() {
   initPollResults();
   initComments();
 });
+
+/**
+ * Reset color indices to ensure fresh color rotation
+ */
+function resetColorIndices() {
+  console.log('Resetting color indices');
+  // These variables are defined in renderPollResults
+  if (typeof colorFamilyIndex !== 'undefined') {
+    colorFamilyIndex = 0;
+    console.log('Reset colorFamilyIndex to 0');
+  }
+  if (typeof colorIndex !== 'undefined') {
+    colorIndex = 0;
+    console.log('Reset colorIndex to 0');
+  }
+  if (typeof assignedColors !== 'undefined') {
+    // Clear assignedColors but keep fixed colors
+    const fixedLocations = ['England', 'Los Angeles', 'Minnesota'];
+    const newAssignedColors = {};
+    
+    fixedLocations.forEach(location => {
+      if (assignedColors[location]) {
+        newAssignedColors[location] = assignedColors[location];
+      }
+    });
+    
+    assignedColors = newAssignedColors;
+    console.log('Reset assignedColors, keeping fixed locations');
+  }
+  
+  // Reset the custom locations counter
+  if (typeof customLocationsCount !== 'undefined') {
+    customLocationsCount.count = 0;
+    console.log('Reset customLocationsCount to 0');
+  }
+}
 
 /**
  * Mobile Navigation Toggle
@@ -158,25 +197,243 @@ async function fetchPollResults() {
  * @param {Object} results - The poll results data
  * @param {HTMLElement} container - The container element
  */
-function renderPollResults(results, container) {
+async function renderPollResults(results, container) {
   if (!results || !results.locations || results.locations.length === 0) {
     container.innerHTML = '<p class="poll-results__error">No poll results available.</p>';
     return;
   }
+
+  console.log('Rendering poll results:', results);
   
+  // Reset color indices and assigned colors for a fresh start
+  resetColorIndices();
+  
+  const colors = {
+    "warm": [
+      {
+        "name": "Burnt Sienna",
+        "hex": "#E97451"
+      },
+      {
+        "name": "Coral",
+        "hex": "#FF7F50"
+      },
+      {
+        "name": "Amber",
+        "hex": "#FFBF00"
+      },
+      {
+        "name": "Terracotta",
+        "hex": "#E2725B"
+      },
+      {
+        "name": "Rosewood",
+        "hex": "#65000B"
+      },
+      {
+        "name": "Dusty Peach",
+        "hex": "#E8C4B8"
+      },
+      {
+        "name": "Persimmon",
+        "hex": "#EC5800"
+      }
+    ],
+    "cool": [
+      {
+        "name": "Seafoam Green",
+        "hex": "#9FE2BF"
+      },
+      {
+        "name": "Turquoise",
+        "hex": "#40E0D0"
+      },
+      {
+        "name": "Slate Blue",
+        "hex": "#6A5ACD"
+      },
+      {
+        "name": "Mint",
+        "hex": "#98FF98"
+      },
+      {
+        "name": "Deep Navy",
+        "hex": "#000080"
+      },
+      {
+        "name": "Sky Blue",
+        "hex": "#87CEEB"
+      }
+    ],
+    "neutral": [
+      {
+        "name": "Champagne Gold",
+        "hex": "#F7E7CE"
+      },
+      {
+        "name": "Clay Gray",
+        "hex": "#B2A38B"
+      },
+      {
+        "name": "Moss Green",
+        "hex": "#8A9A5B"
+      },
+      {
+        "name": "Plum",
+        "hex": "#8E4585"
+      },
+      {
+        "name": "Soft Lavender",
+        "hex": "#D8BFD8"
+      },
+      {
+        "name": "Charcoal",
+        "hex": "#36454F"
+      },
+      {
+        "name": "Dusty Rose",
+        "hex": "#C08081"
+      }
+    ],
+    "fixed": {
+      "England": {
+        "name": "Evergreen",
+        "hex": "#2F4F4F"
+      },
+      "Minnesota": {
+        "name": "Ice Blue",
+        "hex": "#D6F6FF"
+      },
+      "Los Angeles": {
+        "name": "Sunset Orange",
+        "hex": "#FF6F3C"
+      }
+    }
+  };
+
+  const assignedColors = {};
+
+  function getFixedColor(locationName, colors) {
+    console.log(`getFixedColor called with locationName: ${locationName}`);
+    
+    // Directly assign colors based on location name
+    if (locationName === "England") {
+      console.log(`Fixed color found for England: #2F4F4F (Evergreen)`);
+      return "#2F4F4F"; // Evergreen
+    } else if (locationName === "Minnesota") {
+      console.log(`Fixed color found for Minnesota: #D6F6FF (Ice Blue)`);
+      return "#D6F6FF"; // Ice Blue
+    } else if (locationName === "Los Angeles") {
+      console.log(`Fixed color found for Los Angeles: #FF6F3C (Sunset Orange)`);
+      return "#FF6F3C"; // Sunset Orange
+    } else {
+      console.log(`No fixed color found for ${locationName}`);
+      return null;
+    }
+  }
+
+  const colorFamilies = ['warm', 'cool', 'neutral'];
+  let colorFamilyIndex = 0;
+  let colorIndex = 0;
+
+  // Keep track of which custom locations we've seen
+  const customLocationsCount = { count: 0 };
+  
+  // List of fixed locations that should use their assigned colors
+  const fixedLocationsList = ['England', 'Los Angeles', 'Minnesota'];
+  
+  function getColorForLocation(locationName, colors) {
+    console.log(`Getting color for location: ${locationName}`);
+    console.log(`Current colorFamilyIndex: ${colorFamilyIndex}, colorIndex: ${colorIndex}`);
+    
+    // Check if this is a fixed location (England, Minnesota, Los Angeles)
+    let color = getFixedColor(locationName, colors);
+    if (color) {
+      console.log(`Using fixed color for ${locationName}: ${color}`);
+      console.log(`HEX COLOR FOR ${locationName}: ${color}`);
+      // For fixed locations, cache the color
+      assignedColors[locationName] = color;
+      return color;
+    }
+    
+    // Special handling for custom locations - force different color families
+    // Any location that's not in the fixedLocationsList is considered a custom location
+    if (!fixedLocationsList.includes(locationName)) {
+      console.log(`Special handling for custom location: ${locationName}`);
+      
+      // Increment the count of custom locations we've seen
+      customLocationsCount.count++;
+      console.log(`This is custom location #${customLocationsCount.count}`);
+      
+      // Force each custom location to use a different color family
+      // Use modulo to cycle through the families
+      const familyIndex = (customLocationsCount.count - 1) % colorFamilies.length;
+      const familyName = colorFamilies[familyIndex];
+      console.log(`Forcing "Other" location to use family: ${familyName} (index ${familyIndex})`);
+      
+      const family = colors[familyName];
+      
+      if (!family || family.length === 0) {
+        const randomColor = stringToColor(Math.random().toString());
+        console.log(`No family found, using random color: ${randomColor}`);
+        return randomColor;
+      }
+      
+      // Use a random color from the selected family
+      const randomIndex = Math.floor(Math.random() * family.length);
+      const color = family[randomIndex].hex;
+      console.log(`Selected color: ${color} (${family[randomIndex].name}) from family ${familyName} at index ${randomIndex}`);
+      console.log(`HEX COLOR FOR ${locationName}: ${color}`);
+      
+      return color;
+    }
+    
+    // For non-fixed, non-"Other" locations, use cached colors if available
+    if (assignedColors[locationName]) {
+      return assignedColors[locationName];
+    }
+    
+    // Get the next color from the rotation for other locations
+    function getNextColor(colors) {
+      if (!colors) return stringToColor(Math.random().toString());
+
+      // Use the outer colorFamilies, colorFamilyIndex, and colorIndex variables
+      const familyName = colorFamilies[colorFamilyIndex];
+      const family = colors[familyName];
+
+      if (!family || family.length === 0) return stringToColor(Math.random().toString());
+
+      // Get the color at the current index
+      const color = family[colorIndex].hex;
+      
+      // Increment colorIndex for next time
+      colorIndex++;
+      
+      // If we've used all colors in this family, move to the next family
+      if (colorIndex >= family.length) {
+        colorIndex = 0;
+        colorFamilyIndex = (colorFamilyIndex + 1) % colorFamilies.length;
+      }
+      
+      return color;
+    }
+    
+    // Get a color from the rotation
+    color = getNextColor(colors);
+    
+    // Cache the color for this location
+    assignedColors[locationName] = color;
+    return color;
+  }
+
   // Create HTML for the poll results
   let html = '<div class="poll-results__chart">';
-  
+
   // Calculate percentages and create bars for each location
   results.locations.forEach(location => {
     const percentage = Math.round((location.votes / results.totalVotes) * 100);
-    
-    // Set explicit colors with cache-busting
-    const color = location.id === 'england' ? '#FF3366' :
-                  location.id === 'la' ? '#FF6B35' :
-                  location.id === 'minnesota' ? '#3A5FCD' :
-                  stringToColor(location.name + new Date().getTime());
-    
+    const color = getColorForLocation(location.name, colors);
+
     html += `
       <div class="poll-location" style="--location-color: ${color}">
         <div class="poll-location__header">
@@ -184,35 +441,34 @@ function renderPollResults(results, container) {
           <span class="poll-location__percentage">${percentage}%</span>
         </div>
         <div class="poll-location__bar-container">
-          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%; background-color: ${location.id === 'other' ? stringToColor(location.name) : ''}"></div>
+          <div class="poll-location__bar poll-location__bar--${location.id}" style="width: ${percentage}%"></div>
         </div>
       </div>
     `;
   });
-  
+
   html += '</div>';
-  
+
   // Add total votes
   html += `<div class="poll-results__total">Total votes: ${results.totalVotes}</div>`;
-  
+
   // Set the HTML
   container.innerHTML = html;
-  
+
   // Add animation effect - bars start at 0 width and animate to full width
   setTimeout(() => {
     const bars = container.querySelectorAll('.poll-location__bar');
-    
+
     bars.forEach(bar => {
       const width = bar.style.width;
       bar.style.width = '0%';
-      
+
       setTimeout(() => {
         bar.style.width = width;
       }, 100);
     });
   }, 100);
 }
-
 /**
  * Photo Gallery Functionality
  */
@@ -377,6 +633,19 @@ function stringToColor(str) {
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
+  
   const hue = Math.abs(hash % 360);
-  return `hsl(${hue}, 70%, 45%)`;
+  
+  // Convert HSL to HEX
+  const h = hue / 360;
+  const s = 0.7;
+  const l = 0.45;
+  const a = s * Math.min(l, 1 - l);
+  const f = n => {
+    const k = (n + h * 12) % 12;
+    return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+  };
+  return `#${Math.round(f(0) * 255).toString(16).padStart(2, '0')}` +
+         `${Math.round(f(8) * 255).toString(16).padStart(2, '0')}` +
+         `${Math.round(f(4) * 255).toString(16).padStart(2, '0')}`;
 }
