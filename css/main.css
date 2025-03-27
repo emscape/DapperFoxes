@@ -177,12 +177,17 @@ img {
 
 /* Section */
 .section {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0; /* Reduced from var(--spacing-xl) */
+}
+
+/* Adjust spacing for consecutive sections */
+.section + .section {
+  padding-top: 0; /* Remove top padding for consecutive sections */
 }
 
 .section__title {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg); /* Reduced from var(--spacing-xl) */
   position: relative;
 }
 
@@ -365,6 +370,86 @@ ul li {
 /* Emoji Styling */
 .section__title:has(+ .card p:first-of-type:contains("🛞💍")) {
   font-size: 2.2rem;
+}
+
+/* Poll Results */
+.poll-results {
+  margin-top: var(--spacing-md); /* Reduced from var(--spacing-lg) */
+  margin-bottom: var(--spacing-md);
+}
+
+.poll-results__loading,
+.poll-results__error {
+  text-align: center;
+  padding: var(--spacing-md);
+  color: #777;
+}
+
+.poll-results__chart {
+  margin-top: var(--spacing-md);
+}
+
+.poll-location {
+  margin-bottom: var(--spacing-md);
+}
+
+.poll-location__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.poll-location__name {
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+.poll-location__percentage {
+  font-weight: 600;
+  color: var(--color-teal);
+}
+
+.poll-location__bar-container {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.poll-location__bar {
+  height: 100%;
+  background-color: var(--color-teal);
+  border-radius: var(--border-radius);
+  transition: width 1s ease-in-out;
+}
+
+/* England - Rose Red */
+.poll-location__bar--england {
+  --location-color: #FF3366; /* England - Rose Red */
+}
+
+.poll-location__bar--la {
+  --location-color: #FF6B35 !important; /* LA - Sunset Orange */
+}
+
+.poll-location__bar--minnesota {
+  --location-color: #3A5FCD; /* MN - North Star Blue */
+}
+
+.poll-location__bar--other {
+  /* Color will be set inline by JavaScript */
+}
+
+.poll-location__bar {
+  background-color: var(--location-color, var(--color-teal)) !important;
+}
+
+.poll-results__total {
+  margin-top: var(--spacing-md);
+  text-align: right;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 /* Comments Section */
