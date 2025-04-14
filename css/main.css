@@ -675,3 +675,38 @@ ul li {
 .gallery-item:hover .gallery-item__submitter {
   opacity: 1; /* Show overlay on hover */
 }
+
+
+/* Lightbox Slideshow Navigation */
+.lightbox__content {
+  position: relative; /* Needed for positioning nav buttons */
+}
+
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--color-light);
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10; /* Ensure buttons are above image */
+  border-radius: 4px;
+}
+
+.lightbox__prev {
+  left: 15px;
+}
+
+.lightbox__next {
+  right: 15px;
+}
+
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
