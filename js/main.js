@@ -97,8 +97,9 @@ function initPoll() {
 function initPollResults() {
   const pollResultsContainer = document.getElementById('poll-results');
   
+  // Only proceed if the container exists on the current page
   if (!pollResultsContainer) {
-    console.error('Poll results container not found!');
+    // console.log('Poll results container not found on this page.'); // Optional: Log for debugging
     return;
   }
   
@@ -472,51 +473,129 @@ async function renderPollResults(results, container) {
 /**
  * Photo Gallery Functionality
  */
-function initPhotoGallery() {
-  // This would integrate with Google Albums API in the full implementation
-  // For the MVP, we'll just set up the structure and basic interaction
-  
-  const galleryItems = document.querySelectorAll('.gallery__item');
-  
-  if (!galleryItems.length) return;
-  
-  galleryItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const imgSrc = this.querySelector('img').getAttribute('src');
-      const imgAlt = this.querySelector('img').getAttribute('alt');
+async function initPhotoGallery() { // Make function async to use await
+  const galleryGrid = document.getElementById('gallery-grid');
+  if (!galleryGrid) {
+    // Only run this code on the photos page where the grid exists
+    return;
+  }
+
+  // URL of the deployed Google Apps Script Web App
+  const PHOTO_APP_URL = 'https://script.google.com/macros/s/AKfycbzIWWruyUl574PtFqglVXNU3RPmuKrsQSPYBTSzLvJVou81EkZJX7voqq5QONWC2nwZ/exec';
+
+  // Display loading message
+  galleryGrid.innerHTML = '<p class="gallery-loading">Loading photos...</p>';
+
+  try {
+    // Add cache-busting parameter
+    const cacheBuster = new Date().getTime();
+    const response = await fetch(`${PHOTO_APP_URL}?_=${cacheBuster}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.success || !Array.isArray(data.photos)) {
+      throw new Error(data.message || 'Invalid data format received from script.');
+    }
+
+    // Clear loading message
+    galleryGrid.innerHTML = '';
+
+    if (data.photos.length === 0) {
+      galleryGrid.innerHTML = '<p class="gallery-empty">No approved photos yet. Check back soon!</p>';
+      return;
+    }
+
+    // Create and append gallery items from fetched data
+    data.photos.forEach((photo, index) => {
+      const galleryItem = document.createElement('div');
+      galleryItem.classList.add('gallery-item');
+
+      const img = document.createElement('img');
+      // Use the Google Drive webViewLink provided by the script
+      img.src = photo.imageUrl;
       
-      // Create lightbox (simple implementation for MVP)
-      const lightbox = document.createElement('div');
-      lightbox.classList.add('lightbox');
-      
-      lightbox.innerHTML = `
-        <div class="lightbox__content">
-          <button class="lightbox__close">&times;</button>
-          <img src="${imgSrc}" alt="${imgAlt}" class="lightbox__img">
-          <div class="lightbox__caption">${imgAlt}</div>
-        </div>
-      `;
-      
-      // Add to body
-      document.body.appendChild(lightbox);
-      
-      // Prevent scrolling on body
-      document.body.style.overflow = 'hidden';
-      
-      // Close lightbox when clicking close button or outside the image
-      lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
+      // Construct a more descriptive alt text
+      let altText = `Photo ${index + 1}`;
+      if (photo.description) {
+        altText += `: ${photo.description}`;
+      } else if (photo.submitterName) {
+         altText += ` submitted by ${photo.submitterName}`;
+      }
+       if (photo.photoDate) {
+         altText += ` (Approx. ${photo.photoDate})`;
+      }
+      img.alt = altText;
+      img.loading = 'lazy'; // Improve performance by lazy loading images
+
+      galleryItem.appendChild(img);
+      galleryGrid.appendChild(galleryItem);
+
+      // Add click listener for lightbox, passing relevant data
+      galleryItem.addEventListener('click', function() {
+        openLightbox(photo.imageUrl, altText); // Use the same alt text for caption initially
       });
-      
-      function closeLightbox() {
+    });
+
+  } catch (error) {
+    console.error('Error fetching or rendering photos:', error);
+    galleryGrid.innerHTML = `<p class="gallery-error">Could not load photos. Please try again later. (${error.message})</p>`;
+  }
+
+  // Function to open the lightbox (remains mostly the same)
+  function openLightbox(src, alt) {
+    // Remove existing lightbox if any
+    const existingLightbox = document.querySelector('.lightbox');
+    if (existingLightbox) {
+      document.body.removeChild(existingLightbox);
+    }
+
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    
+    lightbox.innerHTML = `
+      <div class="lightbox__content">
+        <button class="lightbox__close" aria-label="Close image viewer">&times;</button>
+        <img src="${src}" alt="${alt}" class="lightbox__img">
+        <div class="lightbox__caption">${alt}</div>
+      </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    // Add close functionality
+    const closeButton = lightbox.querySelector('.lightbox__close');
+    
+    function closeLightbox() {
+      if (document.body.contains(lightbox)) {
         document.body.removeChild(lightbox);
-        document.body.style.overflow = '';
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+    
+    closeButton.addEventListener('click', closeLightbox);
+    
+    // Close lightbox when clicking outside the image content
+    lightbox.addEventListener('click', function(event) {
+      if (event.target === lightbox) {
+        closeLightbox();
       }
     });
-  });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function handleEscape(event) {
+      if (event.key === 'Escape') {
+        closeLightbox();
+        document.removeEventListener('keydown', handleEscape); // Clean up listener
+      }
+    });
+  }
+
+  // No need for the upload button listener here anymore, as it's a direct link in HTML
 }
 
 /**
@@ -545,7 +624,11 @@ function isValidEmail(email) {
 function initComments() {
   const commentsContainer = document.getElementById('comments-list');
   
-  if (!commentsContainer) return;
+  // Only proceed if the container exists on the current page
+  if (!commentsContainer) {
+     // console.log('Comments container not found on this page.'); // Optional: Log for debugging
+     return;
+  }
   
   // Show loading message
   commentsContainer.innerHTML = '<p class="comments-loading">Loading comments...</p>';
