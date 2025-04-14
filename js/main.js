@@ -3,6 +3,9 @@
  * Main JavaScript File
  */
 
+let galleryPhotos = []; // Array to store fetched photo data for slideshow
+let currentPhotoIndex = 0; // Index of the photo currently shown in lightbox
+
 document.addEventListener('DOMContentLoaded', function() {
   // Reset color indices to ensure fresh color rotation
   resetColorIndices();
@@ -501,10 +504,13 @@ async function initPhotoGallery() { // Make function async to use await
       throw new Error(data.message || 'Invalid data format received from script.');
     }
 
+    // Store fetched photos globally for slideshow use
+    galleryPhotos = data.photos;
+
     // Clear loading message
     galleryGrid.innerHTML = '';
 
-    if (data.photos.length === 0) {
+    if (galleryPhotos.length === 0) { // Use the global array now
       galleryGrid.innerHTML = '<p class="gallery-empty">No approved photos yet. Check back soon!</p>';
       return;
     }
@@ -543,9 +549,9 @@ async function initPhotoGallery() { // Make function async to use await
 
       galleryGrid.appendChild(galleryItem);
 
-      // Add click listener for lightbox, passing relevant data
+      // Add click listener for lightbox, passing the index
       galleryItem.addEventListener('click', function() {
-        openLightbox(photo.imageUrl, altText); // Use the same alt text for caption initially
+        openLightbox(index); // Pass the index of the clicked photo
       });
     });
 
@@ -554,8 +560,12 @@ async function initPhotoGallery() { // Make function async to use await
     galleryGrid.innerHTML = `<p class="gallery-error">Could not load photos. Please try again later. (${error.message})</p>`;
   }
 
-  // Function to open the lightbox (remains mostly the same)
-  function openLightbox(src, alt) {
+  // Function to open the lightbox slideshow
+  function openLightbox(startIndex) {
+    if (galleryPhotos.length === 0) return; // Don't open if no photos
+
+    currentPhotoIndex = startIndex; // Set the starting index
+
     // Remove existing lightbox if any
     const existingLightbox = document.querySelector('.lightbox');
     if (existingLightbox) {
@@ -564,17 +574,68 @@ async function initPhotoGallery() { // Make function async to use await
 
     const lightbox = document.createElement('div');
     lightbox.classList.add('lightbox');
-    
+
+    // Get initial photo data
+    const initialPhoto = galleryPhotos[currentPhotoIndex];
+    const initialSrc = initialPhoto.imageUrl;
+    // Reconstruct alt text (similar to how it's done for the thumbnail)
+    let initialAlt = `Photo ${currentPhotoIndex + 1}`;
+    if (initialPhoto.description) initialAlt += `: ${initialPhoto.description}`;
+    else if (initialPhoto.submitterName) initialAlt += ` submitted by ${initialPhoto.submitterName}`;
+    if (initialPhoto.photoDate) initialAlt += ` (Approx. ${initialPhoto.photoDate})`;
+
     lightbox.innerHTML = `
       <div class="lightbox__content">
         <button class="lightbox__close" aria-label="Close image viewer">&times;</button>
-        <img src="${src}" alt="${alt}" class="lightbox__img">
-        <div class="lightbox__caption">${alt}</div>
+        <button class="lightbox__prev" aria-label="Previous image">&lt;</button>
+        <img src="${initialSrc}" alt="${initialAlt}" class="lightbox__img">
+        <button class="lightbox__next" aria-label="Next image">&gt;</button>
+        <div class="lightbox__caption">${initialAlt}</div>
       </div>
     `;
-    
+
     document.body.appendChild(lightbox);
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    // Add event listeners for navigation buttons
+    lightbox.querySelector('.lightbox__prev').addEventListener('click', showPreviousPhoto);
+
+
+    // Function to update the lightbox content (image and caption)
+    function updateLightboxContent() {
+      if (galleryPhotos.length === 0) return;
+
+      const photo = galleryPhotos[currentPhotoIndex];
+      const lightboxImg = document.querySelector('.lightbox__img');
+      const lightboxCaption = document.querySelector('.lightbox__caption');
+
+      if (lightboxImg && lightboxCaption) {
+        // Reconstruct alt text
+        let altText = `Photo ${currentPhotoIndex + 1}`;
+        if (photo.description) altText += `: ${photo.description}`;
+        else if (photo.submitterName) altText += ` submitted by ${photo.submitterName}`;
+        if (photo.photoDate) altText += ` (Approx. ${photo.photoDate})`;
+
+        lightboxImg.src = photo.imageUrl;
+        lightboxImg.alt = altText;
+        lightboxCaption.textContent = altText;
+      }
+    }
+
+    // Function to show the next photo in the slideshow
+    function showNextPhoto() {
+      if (galleryPhotos.length === 0) return;
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; // Loop back to start
+      updateLightboxContent();
+    }
+
+    // Function to show the previous photo in the slideshow
+    function showPreviousPhoto() {
+      if (galleryPhotos.length === 0) return;
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; // Loop back to end
+      updateLightboxContent();
+    }
+    lightbox.querySelector('.lightbox__next').addEventListener('click', showNextPhoto);
 
     // Add close functionality
     const closeButton = lightbox.querySelector('.lightbox__close');
