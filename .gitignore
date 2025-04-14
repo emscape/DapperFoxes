@@ -40,3 +40,5 @@ yarn-error.log*
 # Roo specific files
 .roo/
 memory-bank/
+.roomodes
+memory-bank-archive/
