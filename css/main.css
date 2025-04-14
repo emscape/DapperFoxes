@@ -497,6 +497,111 @@ ul li {
   text-align: center;
 }
 
+
+/* Photo Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax for desired thumbnail size */
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  aspect-ratio: 1 / 1; /* Square thumbnails */
+  box-shadow: var(--box-shadow);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox__content {
+  position: relative;
+  background-color: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 100px); /* Adjust based on padding/caption height */
+  object-fit: contain;
+  margin-bottom: var(--spacing-sm);
+}
+
+.lightbox__caption {
+  text-align: center;
+  color: var(--color-dark);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-xs);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--color-dark);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.lightbox__close:hover {
+  color: var(--color-teal);
+}
+
+/* Fade-in animation for lightbox */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Photo Upload Section */
+.photo-upload .card {
+  text-align: center;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .hero__title {
@@ -543,4 +648,30 @@ ul li {
   .story__photos {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Photo Gallery Submitter Name Overlay */
+.gallery-item {
+  position: relative; /* Needed for absolute positioning of the overlay */
+  overflow: hidden; /* Keep overlay contained */
+}
+
+.gallery-item__submitter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: var(--color-light); /* Light text color */
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  text-align: left;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover .gallery-item__submitter {
+  opacity: 1; /* Show overlay on hover */
 }
