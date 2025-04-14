@@ -532,6 +532,15 @@ async function initPhotoGallery() { // Make function async to use await
       img.loading = 'lazy'; // Improve performance by lazy loading images
 
       galleryItem.appendChild(img);
+
+      // Add submitter name overlay
+      if (photo.submitterName && photo.submitterName !== 'Unknown') { // Only display if name is known
+        const submitterNameEl = document.createElement('span');
+        submitterNameEl.classList.add('gallery-item__submitter');
+        submitterNameEl.textContent = `By: ${photo.submitterName}`;
+        galleryItem.appendChild(submitterNameEl);
+      }
+
       galleryGrid.appendChild(galleryItem);
 
       // Add click listener for lightbox, passing relevant data
