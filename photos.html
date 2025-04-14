@@ -66,34 +66,36 @@
     <section class="hero">
         <div class="container">
             <h1 class="hero__title">Photo Gallery</h1>
-            <p class="hero__subtitle">Share and view our special moments</p>
+            <p class="hero__subtitle">A collection of our favorite moments, plus a place to share yours!</p>
         </div>
     </section>
-    
-    <!-- Coming Soon Section -->
-    <section class="section">
+
+    <!-- Photo Gallery Section -->
+    <section class="section photo-gallery">
         <div class="container">
-            <h2 class="section__title">Coming Soon</h2>
-            
-            <div class="card">
-                <p>We're currently setting up our photo gallery with Google Albums integration. Soon, you'll be able to:</p>
-                
-                <ul style="margin-left: 2rem; margin-bottom: var(--spacing-md);">
-                    <li>View photos of our journey together</li>
-                    <li>Share your own photos with us</li>
-                    <li>Comment on photos</li>
-                    <li>Download your favorites</li>
-                </ul>
-                
-                <p>Check back soon to see our photo gallery and share your own memories with us!</p>
-                
-                <div style="text-align: center; margin-top: var(--spacing-lg);">
-                    <a href="index.html" class="btn btn--primary">Return to Home</a>
-                </div>
+            <h2 class="section__title">Our Journey in Photos</h2>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Photos will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
-    
+
+    <!-- Photo Upload Section -->
+    <section class="section photo-upload">
+        <div class="container">
+            <h2 class="section__title">Share Your Favorite Moments!</h2>
+            <div class="card">
+                <p>Help us build our wedding slideshow! We'd love to see your favorite photos featuring one or both of us.</p>
+                <p>Please use the button below to upload your photos. We'll review them and add the best ones to our collection.</p>
+                <!-- Link to Google Form for Upload -->
+                <div style="text-align: center; margin-top: var(--spacing-lg);">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScIrBkrofGy8Vurw_K66F8tsbN3BW2641pe7Zeb32XlDtn_Iw/viewform?usp=dialog" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Upload Your Photos</a>
+                </div>
+                <p><small>Note: We'll moderate submissions before they appear in the public gallery.</small></p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
