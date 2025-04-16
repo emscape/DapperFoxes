@@ -1,0 +1,17 @@
+{
+  "sheetId": "1OSytgxAXJ1Sc-Y1mUn8A3dpYTHhk61QDpC16zXJ0SPM",
+  "range": "Form Responses 1!A1:Z1000",
+  "email": {
+    "from": "emily@thedapperfoxes.com",
+    "to": "anderson.emily.sue@gmail.com",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "emily@thedapperfoxes.com",
+        "pass": "your-password"
+      }
+    }
+  }
+}
