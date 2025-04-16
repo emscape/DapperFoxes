@@ -42,3 +42,6 @@ yarn-error.log*
 memory-bank/
 .roomodes
 memory-bank-archive/
+# Secrets / Credentials
+wedding-photo-approver/token.json
+wedding-photo-approver/oauth_credentials.json
