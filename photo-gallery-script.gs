@@ -133,7 +133,7 @@ function getApprovedPhotos() {
           submitterName: nameCol !== -1 ? row[nameCol] : 'Unknown',
           photoDate: dateCol !== -1 ? row[dateCol] : 'Unknown Date', // Handle potential Date object or string
           description: descriptionCol !== -1 ? row[descriptionCol] : '',
-          imageUrl: shareableUrl,
+          url: shareableUrl, // Changed 'imageUrl' to 'url' to match frontend expectation
           // fileId: fileId // Optional: include for debugging
         });
       }

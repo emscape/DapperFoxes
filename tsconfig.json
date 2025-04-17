@@ -3,6 +3,7 @@
     "allowJs": true,
     "noEmit": true,
     "target": "es5",
+    "lib": ["dom", "es6"], // Changed es2015 to es6
     "module": "es2015",
     "strict": true,
     "esModuleInterop": true,
