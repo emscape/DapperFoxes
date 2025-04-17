@@ -476,6 +476,112 @@ async function renderPollResults(results, container) {
 /**
  * Photo Gallery Functionality
  */
+/**
+ * Loads official photos from the project folder into the gallery.
+ */
+/**
+ * Attempts to extract a date from a photo filename.
+ * Handles YYYY-MM-DD, YYYYMMDD formats.
+ * @param {string} filename - The filename (e.g., '2023-04-13.jpg', 'PXL_20240527_...jpg')
+ * @returns {Date|null} - The extracted Date object or null if no valid date found.
+ */
+function extractDateFromFilename(filename) {
+  if (!filename) return null;
+
+  let match;
+
+  // Try YYYY-MM-DD format
+  match = filename.match(/(\d{4})-(\d{2})-(\d{2})/);
+  if (match) {
+    const year = parseInt(match[1], 10);
+    const month = parseInt(match[2], 10) - 1; // Month is 0-indexed
+    const day = parseInt(match[3], 10);
+    if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+      const date = new Date(year, month, day);
+      // Basic validation: check if the constructed date components match input
+      if (date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) {
+          return date;
+      }
+    }
+  }
+
+  // Try YYYYMMDD format (common in PXL_, IMG_, IMG-YYYYMMDD-WA...)
+  match = filename.match(/(\d{4})(\d{2})(\d{2})/);
+  if (match) {
+    const year = parseInt(match[1], 10);
+    const month = parseInt(match[2], 10) - 1; // Month is 0-indexed
+    const day = parseInt(match[3], 10);
+     if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+      const date = new Date(year, month, day);
+      // Basic validation
+      if (date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) {
+          return date;
+      }
+    }
+  }
+
+  return null; // No valid date pattern found
+}
+
+
+/**
+ * Loads official photos from the generated official-photos.json file into the gallery.
+ */
+async function loadOfficialPhotos() { // Make the function async
+  const officialGalleryGrid = document.getElementById('official-photo-gallery');
+  if (!officialGalleryGrid) {
+    console.error('Official photo gallery container (#official-photo-gallery) not found.');
+    return;
+  }
+
+  // Clear any existing content (e.g., loading message)
+  officialGalleryGrid.innerHTML = '<p class="gallery-loading">Loading Center Stage photos...</p>'; // Add loading message
+
+  try {
+    // Fetch the sorted photo list from the JSON file
+    // Add cache-busting parameter
+    const cacheBuster = new Date().getTime();
+    const response = await fetch(`official-photos.json?_=${cacheBuster}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status} fetching official-photos.json`);
+    }
+    const officialPhotosData = await response.json(); // This is already sorted by the build script
+
+    // Clear loading message
+    officialGalleryGrid.innerHTML = '';
+
+    // Append official photos to the global galleryPhotos array
+    const guestPhotoCount = galleryPhotos.length;
+    galleryPhotos = galleryPhotos.concat(officialPhotosData); // JSON data already has {url, caption}
+
+    // Generate HTML from the fetched (and sorted) data
+    officialPhotosData.forEach((photoData, index) => {
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+
+      const img = document.createElement('img');
+      img.src = photoData.url;
+      img.alt = photoData.caption || photoData.url.split('/').pop(); // Use caption if available, else filename
+      img.loading = 'lazy';
+
+      galleryItem.appendChild(img);
+
+      // Add click listener for lightbox using the overall index
+      const overallIndex = guestPhotoCount + index;
+      galleryItem.addEventListener('click', () => openLightbox(overallIndex));
+
+      officialGalleryGrid.appendChild(galleryItem);
+    });
+
+    console.log('Official photos loaded from JSON and rendered.');
+
+  } catch (error) {
+    console.error('Error loading or processing official photos:', error);
+    officialGalleryGrid.innerHTML = '<p class="gallery-error">Could not load Center Stage photos.</p>';
+  }
+}
+
+
 async function initPhotoGallery() { // Make function async to use await
   const galleryGrid = document.getElementById('gallery-grid');
   if (!galleryGrid) {
@@ -483,208 +589,204 @@ async function initPhotoGallery() { // Make function async to use await
     return;
   }
 
-  // URL of the deployed Google Apps Script Web App
+  // URL of the deployed Google Apps Script Web App for GUEST photos
   const PHOTO_APP_URL = 'https://script.google.com/macros/s/AKfycbzIWWruyUl574PtFqglVXNU3RPmuKrsQSPYBTSzLvJVou81EkZJX7voqq5QONWC2nwZ/exec';
 
-  // Display loading message
-  galleryGrid.innerHTML = '<p class="gallery-loading">Loading photos...</p>';
+  // Display loading message for GUEST photos
+  galleryGrid.innerHTML = '<p class="gallery-loading">Loading Crowd View photos...</p>';
 
   try {
+    // Fetch GUEST photos
     // Add cache-busting parameter
-    const cacheBuster = new Date().getTime();
-    const response = await fetch(`${PHOTO_APP_URL}?_=${cacheBuster}`);
+    const guestCacheBuster = new Date().getTime();
+    const response = await fetch(`${PHOTO_APP_URL}?_=${guestCacheBuster}`);
 
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
     }
+const guestData = await response.json(); // Renamed variable
 
-    const data = await response.json();
+// Clear loading message for GUEST photos
+galleryGrid.innerHTML = '';
 
-    if (!data.success || !Array.isArray(data.photos)) {
-      throw new Error(data.message || 'Invalid data format received from script.');
+    // Populate the global galleryPhotos array with GUEST photos first
+    // Ensure it's reset before populating
+    galleryPhotos = [];
+    // Check the structure: guestData.success and guestData.photos array
+    if (guestData && guestData.success && Array.isArray(guestData.photos) && guestData.photos.length > 0) {
+       galleryPhotos = guestData.photos.map(photo => ({ // Access guestData.photos
+         url: photo.url, // Assuming the API returns objects with a 'url' property
+         caption: photo.caption || '' // Assuming an optional 'caption' property
+       }));
+
+       // Render GUEST photos
+       galleryPhotos.forEach((photo, index) => {
+         const galleryItem = document.createElement('div');
+         galleryItem.className = 'gallery-item';
+
+         const img = document.createElement('img');
+         img.src = photo.url;
+         img.alt = photo.caption || 'Guest Photo'; // Use caption or default alt text
+         img.loading = 'lazy'; // Add lazy loading
+
+         galleryItem.appendChild(img);
+
+         // Add click listener for lightbox, passing the index
+         galleryItem.addEventListener('click', () => openLightbox(index));
+
+         galleryGrid.appendChild(galleryItem);
+       }); // End of processing fetched GUEST photos
+    } else {
+       galleryGrid.innerHTML = '<p>No guest photos shared yet!</p>'; // Message if no guest photos
     }
 
-    // Store fetched photos globally for slideshow use
-    galleryPhotos = data.photos;
+      // Now load the official photos from the JSON file
+      // This function will append its photos to the galleryPhotos array
+      await loadOfficialPhotos(); // Make sure to await this if it's async
 
-    // Clear loading message
-    galleryGrid.innerHTML = '';
 
-    if (galleryPhotos.length === 0) { // Use the global array now
-      galleryGrid.innerHTML = '<p class="gallery-empty">No approved photos yet. Check back soon!</p>';
-      return;
-    }
+      // --- Lightbox Functionality ---
+      // (Defined within initPhotoGallery scope to access galleryPhotos easily)
+      // Ensure lightbox elements exist before adding listeners
+      const lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.className = 'lightbox';
+      lightbox.style.display = 'none'; // Initially hidden
+      document.body.appendChild(lightbox);
 
-    // Create and append gallery items from fetched data
-    data.photos.forEach((photo, index) => {
-      const galleryItem = document.createElement('div');
-      galleryItem.classList.add('gallery-item');
+      const lightboxContent = document.createElement('div');
+      lightboxContent.className = 'lightbox__content';
+      lightbox.appendChild(lightboxContent);
 
-      const img = document.createElement('img');
-      // Use the Google Drive webViewLink provided by the script
-      img.src = photo.imageUrl;
-      
-      // Construct a more descriptive alt text
-      let altText = `Photo ${index + 1}`;
-      if (photo.description) {
-        altText += `: ${photo.description}`;
-      } else if (photo.submitterName) {
-         altText += ` submitted by ${photo.submitterName}`;
+      const lightboxImg = document.createElement('img');
+      lightboxImg.className = 'lightbox__img';
+      lightboxContent.appendChild(lightboxImg);
+
+      const lightboxCaption = document.createElement('p');
+      lightboxCaption.className = 'lightbox__caption';
+      lightboxContent.appendChild(lightboxCaption);
+
+      const closeButton = document.createElement('span');
+      closeButton.className = 'lightbox__close';
+      closeButton.innerHTML = '&times;';
+      lightbox.appendChild(closeButton);
+
+      const prevButton = document.createElement('span');
+      prevButton.className = 'lightbox__prev';
+      prevButton.innerHTML = '&#10094;'; // Left arrow
+      lightbox.appendChild(prevButton);
+
+      const nextButton = document.createElement('span');
+      nextButton.className = 'lightbox__next';
+      nextButton.innerHTML = '&#10095;'; // Right arrow
+      lightbox.appendChild(nextButton);
+
+
+      // Function to open the lightbox
+      window.openLightbox = function(startIndex) { // Attach to window to make it accessible
+        if (!Array.isArray(galleryPhotos) || galleryPhotos.length === 0) {
+            console.error("Gallery photos array is empty or not initialized.");
+            return;
+        }
+        currentPhotoIndex = startIndex;
+        updateLightboxContent();
+        lightbox.style.display = 'flex'; // Show lightbox
       }
-       if (photo.photoDate) {
-         altText += ` (Approx. ${photo.photoDate})`;
+
+      // Function to update lightbox content
+      function updateLightboxContent() {
+          if (currentPhotoIndex < 0 || currentPhotoIndex >= galleryPhotos.length) {
+              console.error("Invalid photo index:", currentPhotoIndex);
+              return; // Avoid errors if index is out of bounds
+          }
+          const photo = galleryPhotos[currentPhotoIndex];
+          if (!photo || !photo.url) {
+              console.error("Invalid photo data at index:", currentPhotoIndex, photo);
+              // Optionally close lightbox or show error
+              closeLightbox();
+              return;
+          }
+          lightboxImg.src = photo.url;
+          lightboxCaption.textContent = photo.caption || ''; // Use caption or empty string
       }
-      img.alt = altText;
-      img.loading = 'lazy'; // Improve performance by lazy loading images
 
-      galleryItem.appendChild(img);
 
-      // Add submitter name overlay
-      if (photo.submitterName && photo.submitterName !== 'Unknown') { // Only display if name is known
-        const submitterNameEl = document.createElement('span');
-        submitterNameEl.classList.add('gallery-item__submitter');
-        submitterNameEl.textContent = `By: ${photo.submitterName}`;
-        galleryItem.appendChild(submitterNameEl);
+      // Function to show the next photo
+      function showNextPhoto() {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; // Loop back to start
+        updateLightboxContent();
       }
 
-      galleryGrid.appendChild(galleryItem);
+      // Function to show the previous photo
+      function showPreviousPhoto() {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; // Loop back to end
+        updateLightboxContent();
+      }
 
-      // Add click listener for lightbox, passing the index
-      galleryItem.addEventListener('click', function() {
-        openLightbox(index); // Pass the index of the clicked photo
+
+      // Function to close the lightbox
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+      }
+
+      // Event listeners for lightbox controls
+      closeButton.addEventListener('click', closeLightbox);
+      nextButton.addEventListener('click', showNextPhoto);
+      prevButton.addEventListener('click', showPreviousPhoto);
+
+      // Close lightbox if clicking outside the image content
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
       });
-    });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (lightbox.style.display === 'flex') {
+          if (e.key === 'ArrowRight') {
+            showNextPhoto();
+          } else if (e.key === 'ArrowLeft') {
+            showPreviousPhoto();
+          } else if (e.key === 'Escape') {
+            closeLightbox();
+          }
+        }
+      });
+
 
   } catch (error) {
-    console.error('Error fetching or rendering photos:', error);
-    galleryGrid.innerHTML = `<p class="gallery-error">Could not load photos. Please try again later. (${error.message})</p>`;
+    console.error('Error initializing photo gallery (Guest Photos Fetch):', error); // Added context to log
+    galleryGrid.innerHTML = `<p class="gallery-error">Could not load Crowd View photos: ${error.message}</p>`; // Added error message detail
+    // Attempt to load official photos even if guest photos fail
+    try {
+        await loadOfficialPhotos();
+    } catch (officialError) {
+        console.error('Also failed to load official photos:', officialError);
+        // Optionally display a combined error message
+    }
   }
-
-  // Function to open the lightbox slideshow
-  function openLightbox(startIndex) {
-    if (galleryPhotos.length === 0) return; // Don't open if no photos
-
-    currentPhotoIndex = startIndex; // Set the starting index
-
-    // Remove existing lightbox if any
-    const existingLightbox = document.querySelector('.lightbox');
-    if (existingLightbox) {
-      document.body.removeChild(existingLightbox);
-    }
-
-    const lightbox = document.createElement('div');
-    lightbox.classList.add('lightbox');
-
-    // Get initial photo data
-    const initialPhoto = galleryPhotos[currentPhotoIndex];
-    const initialSrc = initialPhoto.imageUrl;
-    // Reconstruct alt text (similar to how it's done for the thumbnail)
-    let initialAlt = `Photo ${currentPhotoIndex + 1}`;
-    if (initialPhoto.description) initialAlt += `: ${initialPhoto.description}`;
-    else if (initialPhoto.submitterName) initialAlt += ` submitted by ${initialPhoto.submitterName}`;
-    if (initialPhoto.photoDate) initialAlt += ` (Approx. ${initialPhoto.photoDate})`;
-
-    lightbox.innerHTML = `
-      <div class="lightbox__content">
-        <button class="lightbox__close" aria-label="Close image viewer">&times;</button>
-        <button class="lightbox__prev" aria-label="Previous image">&lt;</button>
-        <img src="${initialSrc}" alt="${initialAlt}" class="lightbox__img">
-        <button class="lightbox__next" aria-label="Next image">&gt;</button>
-        <div class="lightbox__caption">${initialAlt}</div>
-      </div>
-    `;
-
-    document.body.appendChild(lightbox);
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-
-    // Add event listeners for navigation buttons
-    lightbox.querySelector('.lightbox__prev').addEventListener('click', showPreviousPhoto);
-
-
-    // Function to update the lightbox content (image and caption)
-    function updateLightboxContent() {
-      if (galleryPhotos.length === 0) return;
-
-      const photo = galleryPhotos[currentPhotoIndex];
-      const lightboxImg = document.querySelector('.lightbox__img');
-      const lightboxCaption = document.querySelector('.lightbox__caption');
-
-      if (lightboxImg && lightboxCaption) {
-        // Reconstruct alt text
-        let altText = `Photo ${currentPhotoIndex + 1}`;
-        if (photo.description) altText += `: ${photo.description}`;
-        else if (photo.submitterName) altText += ` submitted by ${photo.submitterName}`;
-        if (photo.photoDate) altText += ` (Approx. ${photo.photoDate})`;
-
-        lightboxImg.src = photo.imageUrl;
-        lightboxImg.alt = altText;
-        lightboxCaption.textContent = altText;
-      }
-    }
-
-    // Function to show the next photo in the slideshow
-    function showNextPhoto() {
-      if (galleryPhotos.length === 0) return;
-      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; // Loop back to start
-      updateLightboxContent();
-    }
-
-    // Function to show the previous photo in the slideshow
-    function showPreviousPhoto() {
-      if (galleryPhotos.length === 0) return;
-      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; // Loop back to end
-      updateLightboxContent();
-    }
-    lightbox.querySelector('.lightbox__next').addEventListener('click', showNextPhoto);
-
-    // Add close functionality
-    const closeButton = lightbox.querySelector('.lightbox__close');
-    
-    function closeLightbox() {
-      if (document.body.contains(lightbox)) {
-        document.body.removeChild(lightbox);
-        document.body.style.overflow = ''; // Restore scrolling
-      }
-    }
-    
-    closeButton.addEventListener('click', closeLightbox);
-    
-    // Close lightbox when clicking outside the image content
-    lightbox.addEventListener('click', function(event) {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    // Close lightbox with Escape key
-    document.addEventListener('keydown', function handleEscape(event) {
-      if (event.key === 'Escape') {
-        closeLightbox();
-        document.removeEventListener('keydown', handleEscape); // Clean up listener
-      }
-    });
-  }
-
-  // No need for the upload button listener here anymore, as it's a direct link in HTML
 }
 
+
 /**
- * Helper function to format date
- * @param {Date} date - Date object to format
+ * Format date string
+ * @param {string} date - Date string
  * @return {string} Formatted date string
  */
 function formatDate(date) {
+  if (!date) return '';
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
+  return new Date(date).toLocaleDateString(undefined, options);
 }
 
 /**
- * Helper function to validate email
- * @param {string} email - Email to validate
- * @return {boolean} Whether email is valid
+ * Validate email address
+ * @param {string} email - Email address
+ * @return {boolean} True if valid email, false otherwise
  */
 function isValidEmail(email) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 
@@ -693,59 +795,64 @@ function isValidEmail(email) {
  */
 function initComments() {
   const commentsContainer = document.getElementById('comments-list');
-  
-  // Only proceed if the container exists on the current page
   if (!commentsContainer) {
-     // console.log('Comments container not found on this page.'); // Optional: Log for debugging
-     return;
+    // Only run this code on the poll page where the comments list exists
+    return;
   }
-  
+
   // Show loading message
   commentsContainer.innerHTML = '<p class="comments-loading">Loading comments...</p>';
-  
-  // Fetch comments from the Google Apps Script web app
+
+  // Fetch comments
   fetchComments()
     .then(comments => {
       renderComments(comments, commentsContainer);
     })
     .catch(error => {
+      console.error('Error fetching comments:', error);
       commentsContainer.innerHTML = `<p class="comments-error">Unable to load comments. ${error.message}</p>`;
     });
 }
 
 /**
- * Fetch comments from the Google Apps Script web app
- * @return {Promise<Array>} Promise resolving to array of comments
+ * Fetch comments from Google Apps Script Web App
+ * @return {Promise<Array>} Promise resolving to array of comment objects
  */
 async function fetchComments() {
   // Google Apps Script Web App URL
+  // Update this URL with the new deployment URL after updating the Google Apps Script
   const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
-  
+
   try {
-    const response = await fetch(WEB_APP_URL);
-    
+    // Add cache-busting parameter
+    const cacheBuster = new Date().getTime();
+    const response = await fetch(`${WEB_APP_URL}?_=${cacheBuster}`); // Fetch approved comments by default
+
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
     }
-    
+
     const data = await response.json();
-    
+
     if (!data.success) {
-      throw new Error(data.message || 'Failed to fetch comments');
+        throw new Error(data.message || 'Failed to fetch comments');
     }
-    
-    return data.comments || [];
+
+    // Check if comments array exists and is an array
+    if (Array.isArray(data.comments)) {
+        return data.comments;
+    } else {
+        console.warn('Comments data is not an array or is missing, returning empty array.');
+        return []; // Return empty array if comments are not in the expected format
+    }
+
   } catch (error) {
     console.error('Error fetching comments:', error);
-    
     // Fallback to mock data if API fetch fails
-    console.log('Using fallback mock data');
+    console.log('Using fallback mock data for comments');
     return [
-      {
-        name: 'Emily (Mock Data)',
-        timestamp: new Date().toISOString(),
-        text: 'This is mock data because we could not fetch the real comments. Please make sure the Google Apps Script web app is deployed correctly.'
-      }
+      { author: 'Sample User 1', date: '2025-03-25', body: 'This is a sample comment.' },
+      { author: 'Sample User 2', date: '2025-03-24', body: 'Another example comment here!' }
     ];
   }
 }
@@ -753,52 +860,53 @@ async function fetchComments() {
 
 /**
  * Render comments in the container
+ * @param {Array} comments - Array of comment objects
+ * @param {HTMLElement} container - The container element
  */
 function renderComments(comments, container) {
   if (!comments || comments.length === 0) {
-    container.innerHTML = '<p class="comments-empty">No comments yet. Be the first to share your thoughts!</p>';
+    container.innerHTML = '<p class="comments-empty">No comments yet. Be the first!</p>';
     return;
   }
-  
-  const commentsHTML = comments.map(comment => `
-    <div class="comment-card">
+
+  // Clear loading message
+  container.innerHTML = '';
+
+  // Create HTML for each comment
+  comments.forEach(comment => {
+    const commentCard = document.createElement('div');
+    commentCard.className = 'comment-card';
+
+    commentCard.innerHTML = `
       <div class="comment-header">
-        <h3 class="comment-author">${comment.name}</h3>
-        <span class="comment-date">${formatDate(new Date(comment.timestamp))}</span>
+        <h4 class="comment-author">${comment.author || 'Anonymous'}</h4>
+        <span class="comment-date">${formatDate(comment.date)}</span>
       </div>
       <div class="comment-body">
-        <p>${comment.text}</p>
+        <p>${comment.body || ''}</p>
       </div>
-    </div>
-  `).join('');
-  
-  container.innerHTML = commentsHTML;
+    `;
+    container.appendChild(commentCard);
+  });
 }
-// Diagnostic function removed as we're now using the Google Apps Script web app for poll results
+
 
 /**
- * Generate consistent color from string
+ * Simple hash function to generate a color from a string
  * @param {string} str - Input string
- * @return {string} HSL color string
+ * @return {string} Hex color code
  */
 function stringToColor(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  
-  const hue = Math.abs(hash % 360);
-  
-  // Convert HSL to HEX
-  const h = hue / 360;
-  const s = 0.7;
-  const l = 0.45;
-  const a = s * Math.min(l, 1 - l);
-  const f = n => {
-    const k = (n + h * 12) % 12;
-    return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-  };
-  return `#${Math.round(f(0) * 255).toString(16).padStart(2, '0')}` +
-         `${Math.round(f(8) * 255).toString(16).padStart(2, '0')}` +
-         `${Math.round(f(4) * 255).toString(16).padStart(2, '0')}`;
+  let color = '#';
+  // Ensure bright enough colors by setting minimum values for RGB components
+  const minComponentValue = 100; // Adjust this value (0-255) as needed
+  const f = n => Math.max(minComponentValue, (hash >> (n * 8)) & 0xFF);
+  for (let i = 0; i < 3; i++) {
+    color += ('00' + f(i).toString(16)).substr(-2);
+  }
+  return color;
 }
