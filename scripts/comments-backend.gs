@@ -1,5 +1,5 @@
 /**
- * DapperFoxes Wedding Website
+ * DapperFoxes weddingwebsite
  * Google Apps Script for Comments Backend
  * 
  * This script provides backend functionality for the comments feature:

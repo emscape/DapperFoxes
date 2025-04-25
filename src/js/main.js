@@ -1,7 +1,7 @@
 import * as paths from './paths.js';
 
 /**
- * DapperFoxes Wedding Website
+ * DapperFoxes weddingwebsite
  * Main JavaScript File
  */
 

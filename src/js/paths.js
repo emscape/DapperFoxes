@@ -1,5 +1,5 @@
 /**
- * Centralized path management for the DapperFoxes Wedding Website.
+ * Centralized path management for the DapperFoxes weddingwebsite.
  */
 
 // Base URLs for external services
