@@ -881,11 +881,11 @@ function renderComments(comments, container) {
 
     commentCard.innerHTML = `
       <div class="comment-header">
-        <h4 class="comment-author">${comment.author || 'Anonymous'}</h4>
-        <span class="comment-date">${formatDate(comment.date)}</span>
+        <h4 class="comment-author">${comment.name || 'Anonymous'}</h4>
+        <span class="comment-date">${formatDate(comment.timestamp)}</span>
       </div>
       <div class="comment-body">
-        <p>${comment.body || ''}</p>
+        <p>${comment.text || ''}</p>
       </div>
     `;
     container.appendChild(commentCard);

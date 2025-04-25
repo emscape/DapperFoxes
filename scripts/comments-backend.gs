@@ -26,7 +26,7 @@ const CONFIG = {
     TIMESTAMP: 0,      // Column A - Timestamp
     LOCATION: 3,       // Column D - Which location would you prefer for our wedding
     COMMENT: 2,        // Column C - Make a suggestion
-    NAME: 1           // Column B - Your name
+    NAME: 1           // Column B - Your name (ensure this matches the actual data)
   }
 };
 
@@ -316,21 +316,25 @@ function doGet(e) {
  * @return {Array} Array of approved comment objects
  */
 function getApprovedComments() {
+  Logger.log("Fetching approved comments...");
   const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
   const sheet = ss.getSheetByName(CONFIG.APPROVED_COMMENTS_SHEET_NAME);
   
   // If the sheet doesn't exist or is empty, return an empty array
   if (!sheet || sheet.getLastRow() <= 1) {
+    Logger.log("No approved comments found (sheet empty or missing)");
     return [];
   }
   
   // Get all data from the sheet
   const data = sheet.getDataRange().getValues();
+  Logger.log(`Retrieved ${data.length} rows from the Approved Comments sheet`);
   
   // Skip the header row
   const approvedComments = [];
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
+    Logger.log(`Row ${i}: ${JSON.stringify(row)}`); // Log each row for debugging
     approvedComments.push({
       timestamp: row[0], // Timestamp (Column A)
       name: row[1],      // Name (Column B)
@@ -338,5 +342,7 @@ function getApprovedComments() {
     });
   }
   
+  Logger.log(`Total approved comments: ${approvedComments.length}`);
+  Logger.log("Approved comments fetched: " + JSON.stringify(approvedComments)); // Log the approved comments
   return approvedComments;
 }
