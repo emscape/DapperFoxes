@@ -1,0 +1,3546 @@
+Folder PATH listing for volume Windows-SSD
+Volume serial number is F068-B697
+C:.
+¦   .gitignore
+¦   AdminInterface.html
+¦   CNAME
+¦   comments-backend-setup.md
+¦   comments-backend.gs
+¦   events.html
+¦   foxes-favicon.ico
+¦   generate-photo-list.js
+¦   index.html
+¦   insert-variables.cmd
+¦   official-photos.json
+¦   our-story-sean-edit.md
+¦   our-story.md
+¦   package-lock.json
+¦   package.json
+¦   photo-gallery-official-plan.md
+¦   photo-gallery-script.gs
+¦   photo-upload-plan.md
+¦   photos.html
+¦   poll-colors-20250327-015005.json
+¦   poll-colors-structured.json
+¦   poll-comments-implementation-plan.md
+¦   poll.html
+¦   proposal-story.md
+¦   README.md
+¦   registry.html
+¦   rsvp.html
+¦   structure.txt
+¦   tsconfig.json
+¦   wedding-photo-approver.zip
+¦   
++---.roo
+¦       system-prompt-architect
+¦       system-prompt-ask
+¦       system-prompt-code
+¦       system-prompt-debug
+¦       system-prompt-test
+¦       
++---archive
+¦       App-script-working.gs
+¦       comments-backend-setup.md.archive
+¦       main.js.archive
+¦       main.js.backup
+¦       
++---css
+¦       main.css
+¦       
++---docs
+¦       CNAME
+¦       
++---images
+¦   ¦   kiss.JPG
+¦   ¦   
+¦   +---weddingwebsite
+¦           2022-12-22(1).jpg
+¦           2022-12-22(2).jpg
+¦           2022-12-22.jpg
+¦           2023-05-14.jpg
+¦           6390495A-C527-4A14-8620-BC9B27A47CA9.jpg
+¦           FB_IMG_1695924890123.jpg
+¦           IMG-20230707-WA0001.jpg
+¦           IMG-20231106-WA0002.jpg
+¦           IMG-20240729-WA0008.jpg
+¦           IMG_0164.HEIC
+¦           IMG_0164.jpg
+¦           IMG_20211010_192019807.jpg
+¦           IMG_20211012_144138431_HDR-COLLAGE.jpg
+¦           IMG_20211012_154012870.jpg
+¦           IMG_20220704_191734_556.jpg
+¦           IMG_20221006_001201_777.jpg
+¦           IMG_20241031_210951.jpg
+¦           IMG_2622.jpeg
+¦           IMG_2765~3.jpg
+¦           IMG_4055.jpg
+¦           IMG_4274~3.JPG
+¦           IMG_4277.JPG
+¦           IMG_4285.JPG
+¦           IMG_4352.JPG
+¦           IMG_4413.jpg
+¦           IMG_4650.jpg
+¦           IMG_4822.jpg
+¦           IMG_5129.jpg
+¦           IMG_5522.jpg
+¦           IMG_5636.jpg
+¦           IMG_5689.jpg
+¦           IMG_5846.jpg
+¦           IMG_6571.jpg
+¦           IMG_6672.jpg
+¦           KLC_6508.jpg
+¦           KLC_6613.png
+¦           PXL_20220107_012346709.NIGHT.jpg
+¦           PXL_20220130_013300197.jpg
+¦           PXL_20220604_222038700.jpg
+¦           PXL_20230220_195752589.jpg
+¦           PXL_20230413_194828571.jpg
+¦           PXL_20230413_221735850.MP.jpg
+¦           PXL_20230723_212239346.MP.jpg
+¦           PXL_20230903_233254681.jpg
+¦           PXL_20230925_191740119.jpg
+¦           PXL_20231008_180752590.MP.jpg
+¦           PXL_20231008_224256069.jpg
+¦           PXL_20231028_012309156.jpg
+¦           PXL_20231224_221742594.MP.jpg
+¦           PXL_20240203_012200793.jpg
+¦           PXL_20240218_225121781.jpg
+¦           PXL_20240412_011704056.jpg
+¦           PXL_20240520_001922954.jpg
+¦           PXL_20240527_040904612.PORTRAIT.jpg
+¦           PXL_20240629_202138676.jpg
+¦           PXL_20240805_184325127.jpg
+¦           PXL_20241117_023201931.MP.jpg
+¦           PXL_20241226_003247125.jpg
+¦           PXL_20250129_062140152.MP.jpg
+¦           PXL_20250203_011744234.jpg
+¦           PXL_20250317_030454964.jpg
+¦           received_307843517795792.jpeg
+¦           received_643637980760421.jpeg
+¦           received_819592655907939.jpeg
+¦           SEA.D4M.PXL20241027015547254.MP2.jpg
+¦           
++---js
+¦       main.js
+¦       
++---memory-bank
+¦       activeContext.md
+¦       activeContext.md.archive
+¦       build-with-ai-wedding.md
+¦       decisionLog.md
+¦       location-poll-copy.md
+¦       log-archive.md
+¦       productContext.md
+¦       progress.md
+¦       systemPatterns.md
+¦       
++---node_modules
+¦   ¦   .package-lock.json
+¦   ¦   
+¦   +---.bin
+¦   ¦       uuid
+¦   ¦       uuid.cmd
+¦   ¦       uuid.ps1
+¦   ¦       
+¦   +---agent-base
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---dist
+¦   ¦           helpers.d.ts
+¦   ¦           helpers.d.ts.map
+¦   ¦           helpers.js
+¦   ¦           helpers.js.map
+¦   ¦           index.d.ts
+¦   ¦           index.d.ts.map
+¦   ¦           index.js
+¦   ¦           index.js.map
+¦   ¦           
+¦   +---base64-js
+¦   ¦       base64js.min.js
+¦   ¦       index.d.ts
+¦   ¦       index.js
+¦   ¦       LICENSE
+¦   ¦       package.json
+¦   ¦       README.md
+¦   ¦       
+¦   +---bignumber.js
+¦   ¦   ¦   bignumber.d.cts
+¦   ¦   ¦   bignumber.d.mts
+¦   ¦   ¦   bignumber.d.ts
+¦   ¦   ¦   bignumber.js
+¦   ¦   ¦   bignumber.mjs
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENCE.md
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---doc
+¦   ¦           API.html
+¦   ¦           
+¦   +---buffer-equal-constant-time
+¦   ¦       .npmignore
+¦   ¦       .travis.yml
+¦   ¦       index.js
+¦   ¦       LICENSE.txt
+¦   ¦       package.json
+¦   ¦       README.md
+¦   ¦       test.js
+¦   ¦       
+¦   +---call-bind-apply-helpers
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   actualApply.d.ts
+¦   ¦   ¦   actualApply.js
+¦   ¦   ¦   applyBind.d.ts
+¦   ¦   ¦   applyBind.js
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   functionApply.d.ts
+¦   ¦   ¦   functionApply.js
+¦   ¦   ¦   functionCall.d.ts
+¦   ¦   ¦   functionCall.js
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   reflectApply.d.ts
+¦   ¦   ¦   reflectApply.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---call-bound
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---debug
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---src
+¦   ¦           browser.js
+¦   ¦           common.js
+¦   ¦           index.js
+¦   ¦           node.js
+¦   ¦           
+¦   +---dunder-proto
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   get.d.ts
+¦   ¦   ¦   get.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   set.d.ts
+¦   ¦   ¦   set.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           get.js
+¦   ¦           index.js
+¦   ¦           set.js
+¦   ¦           
+¦   +---ecdsa-sig-formatter
+¦   ¦   ¦   CODEOWNERS
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---src
+¦   ¦           ecdsa-sig-formatter.d.ts
+¦   ¦           ecdsa-sig-formatter.js
+¦   ¦           param-bytes-for-alg.js
+¦   ¦           
+¦   +---es-define-property
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---es-errors
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   eval.d.ts
+¦   ¦   ¦   eval.js
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   range.d.ts
+¦   ¦   ¦   range.js
+¦   ¦   ¦   README.md
+¦   ¦   ¦   ref.d.ts
+¦   ¦   ¦   ref.js
+¦   ¦   ¦   syntax.d.ts
+¦   ¦   ¦   syntax.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   type.d.ts
+¦   ¦   ¦   type.js
+¦   ¦   ¦   uri.d.ts
+¦   ¦   ¦   uri.js
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---es-object-atoms
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   isObject.d.ts
+¦   ¦   ¦   isObject.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   RequireObjectCoercible.d.ts
+¦   ¦   ¦   RequireObjectCoercible.js
+¦   ¦   ¦   ToObject.d.ts
+¦   ¦   ¦   ToObject.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---exif-parser
+¦   ¦   ¦   .npmignore
+¦   ¦   ¦   browser-global.js
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE.md
+¦   ¦   ¦   Makefile
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---cmd
+¦   ¦   ¦       extract-thumbnail.js
+¦   ¦   ¦       list.js
+¦   ¦   ¦       
+¦   ¦   +---lib
+¦   ¦   ¦       bufferstream.js
+¦   ¦   ¦       date.js
+¦   ¦   ¦       dom-bufferstream.js
+¦   ¦   ¦       exif-tags.js
+¦   ¦   ¦       exif.js
+¦   ¦   ¦       jpeg.js
+¦   ¦   ¦       parser.js
+¦   ¦   ¦       simplify.js
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           expected-exif-tags.json
+¦   ¦           starfish.jpg
+¦   ¦           test-date.js
+¦   ¦           test-exif.js
+¦   ¦           test-jpeg.js
+¦   ¦           test-simplify.js
+¦   ¦           test.jpg
+¦   ¦           
+¦   +---extend
+¦   ¦       .editorconfig
+¦   ¦       .eslintrc
+¦   ¦       .jscs.json
+¦   ¦       .travis.yml
+¦   ¦       CHANGELOG.md
+¦   ¦       component.json
+¦   ¦       index.js
+¦   ¦       LICENSE
+¦   ¦       package.json
+¦   ¦       README.md
+¦   ¦       
+¦   +---function-bind
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   implementation.js
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       SECURITY.md
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           .eslintrc
+¦   ¦           index.js
+¦   ¦           
+¦   +---gaxios
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦               common.d.ts
+¦   ¦               common.js
+¦   ¦               common.js.map
+¦   ¦               gaxios.d.ts
+¦   ¦               gaxios.js
+¦   ¦               gaxios.js.map
+¦   ¦               index.d.ts
+¦   ¦               index.js
+¦   ¦               index.js.map
+¦   ¦               interceptor.d.ts
+¦   ¦               interceptor.js
+¦   ¦               interceptor.js.map
+¦   ¦               retry.d.ts
+¦   ¦               retry.js
+¦   ¦               retry.js.map
+¦   ¦               util.d.ts
+¦   ¦               util.js
+¦   ¦               util.js.map
+¦   ¦               
+¦   +---gcp-metadata
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦               gcp-residency.d.ts
+¦   ¦               gcp-residency.js
+¦   ¦               gcp-residency.js.map
+¦   ¦               index.d.ts
+¦   ¦               index.js
+¦   ¦               index.js.map
+¦   ¦               
+¦   +---get-intrinsic
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           GetIntrinsic.js
+¦   ¦           
+¦   +---get-proto
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   Object.getPrototypeOf.d.ts
+¦   ¦   ¦   Object.getPrototypeOf.js
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   Reflect.getPrototypeOf.d.ts
+¦   ¦   ¦   Reflect.getPrototypeOf.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---google-auth-library
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦           ¦   index.d.ts
+¦   ¦           ¦   index.js
+¦   ¦           ¦   messages.d.ts
+¦   ¦           ¦   messages.js
+¦   ¦           ¦   options.d.ts
+¦   ¦           ¦   options.js
+¦   ¦           ¦   transporters.d.ts
+¦   ¦           ¦   transporters.js
+¦   ¦           ¦   util.d.ts
+¦   ¦           ¦   util.js
+¦   ¦           ¦   
+¦   ¦           +---auth
+¦   ¦           ¦       authclient.d.ts
+¦   ¦           ¦       authclient.js
+¦   ¦           ¦       awsclient.d.ts
+¦   ¦           ¦       awsclient.js
+¦   ¦           ¦       awsrequestsigner.d.ts
+¦   ¦           ¦       awsrequestsigner.js
+¦   ¦           ¦       baseexternalclient.d.ts
+¦   ¦           ¦       baseexternalclient.js
+¦   ¦           ¦       computeclient.d.ts
+¦   ¦           ¦       computeclient.js
+¦   ¦           ¦       credentials.d.ts
+¦   ¦           ¦       credentials.js
+¦   ¦           ¦       defaultawssecuritycredentialssupplier.d.ts
+¦   ¦           ¦       defaultawssecuritycredentialssupplier.js
+¦   ¦           ¦       downscopedclient.d.ts
+¦   ¦           ¦       downscopedclient.js
+¦   ¦           ¦       envDetect.d.ts
+¦   ¦           ¦       envDetect.js
+¦   ¦           ¦       executable-response.d.ts
+¦   ¦           ¦       executable-response.js
+¦   ¦           ¦       externalAccountAuthorizedUserClient.d.ts
+¦   ¦           ¦       externalAccountAuthorizedUserClient.js
+¦   ¦           ¦       externalclient.d.ts
+¦   ¦           ¦       externalclient.js
+¦   ¦           ¦       filesubjecttokensupplier.d.ts
+¦   ¦           ¦       filesubjecttokensupplier.js
+¦   ¦           ¦       googleauth.d.ts
+¦   ¦           ¦       googleauth.js
+¦   ¦           ¦       iam.d.ts
+¦   ¦           ¦       iam.js
+¦   ¦           ¦       identitypoolclient.d.ts
+¦   ¦           ¦       identitypoolclient.js
+¦   ¦           ¦       idtokenclient.d.ts
+¦   ¦           ¦       idtokenclient.js
+¦   ¦           ¦       impersonated.d.ts
+¦   ¦           ¦       impersonated.js
+¦   ¦           ¦       jwtaccess.d.ts
+¦   ¦           ¦       jwtaccess.js
+¦   ¦           ¦       jwtclient.d.ts
+¦   ¦           ¦       jwtclient.js
+¦   ¦           ¦       loginticket.d.ts
+¦   ¦           ¦       loginticket.js
+¦   ¦           ¦       oauth2client.d.ts
+¦   ¦           ¦       oauth2client.js
+¦   ¦           ¦       oauth2common.d.ts
+¦   ¦           ¦       oauth2common.js
+¦   ¦           ¦       passthrough.d.ts
+¦   ¦           ¦       passthrough.js
+¦   ¦           ¦       pluggable-auth-client.d.ts
+¦   ¦           ¦       pluggable-auth-client.js
+¦   ¦           ¦       pluggable-auth-handler.d.ts
+¦   ¦           ¦       pluggable-auth-handler.js
+¦   ¦           ¦       refreshclient.d.ts
+¦   ¦           ¦       refreshclient.js
+¦   ¦           ¦       stscredentials.d.ts
+¦   ¦           ¦       stscredentials.js
+¦   ¦           ¦       urlsubjecttokensupplier.d.ts
+¦   ¦           ¦       urlsubjecttokensupplier.js
+¦   ¦           ¦       
+¦   ¦           +---crypto
+¦   ¦               ¦   crypto.d.ts
+¦   ¦               ¦   crypto.js
+¦   ¦               ¦   
+¦   ¦               +---browser
+¦   ¦               ¦       crypto.d.ts
+¦   ¦               ¦       crypto.js
+¦   ¦               ¦       
+¦   ¦               +---node
+¦   ¦                       crypto.d.ts
+¦   ¦                       crypto.js
+¦   ¦                       
+¦   +---google-logging-utils
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦               colours.d.ts
+¦   ¦               colours.js
+¦   ¦               colours.js.map
+¦   ¦               index.d.ts
+¦   ¦               index.js
+¦   ¦               index.js.map
+¦   ¦               logging-utils.d.ts
+¦   ¦               logging-utils.js
+¦   ¦               logging-utils.js.map
+¦   ¦               temporal.d.ts
+¦   ¦               temporal.js
+¦   ¦               temporal.js.map
+¦   ¦               
+¦   +---googleapis
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦           ¦   googleapis.d.ts
+¦   ¦           ¦   googleapis.js
+¦   ¦           ¦   index.d.ts
+¦   ¦           ¦   index.js
+¦   ¦           ¦   
+¦   ¦           +---apis
+¦   ¦           ¦   ¦   index.d.ts
+¦   ¦           ¦   ¦   index.js
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---abusiveexperiencereport
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---acceleratedmobilepageurl
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---accessapproval
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---accesscontextmanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---acmedns
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---addressvalidation
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adexchangebuyer
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.2.d.ts
+¦   ¦           ¦   ¦       v1.2.js
+¦   ¦           ¦   ¦       v1.3.d.ts
+¦   ¦           ¦   ¦       v1.3.js
+¦   ¦           ¦   ¦       v1.4.d.ts
+¦   ¦           ¦   ¦       v1.4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adexchangebuyer2
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adexperiencereport
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---admin
+¦   ¦           ¦   ¦       datatransfer_v1.d.ts
+¦   ¦           ¦   ¦       datatransfer_v1.js
+¦   ¦           ¦   ¦       directory_v1.d.ts
+¦   ¦           ¦   ¦       directory_v1.js
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       reports_v1.d.ts
+¦   ¦           ¦   ¦       reports_v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---admob
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adsense
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.4.d.ts
+¦   ¦           ¦   ¦       v1.4.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adsensehost
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v4.1.d.ts
+¦   ¦           ¦   ¦       v4.1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---adsenseplatform
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---advisorynotifications
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---aiplatform
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---airquality
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---alertcenter
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---alloydb
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---analytics
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---analyticsadmin
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---analyticsdata
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---analyticshub
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---analyticsreporting
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---androiddeviceprovisioning
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---androidenterprise
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---androidmanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---androidpublisher
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.1.d.ts
+¦   ¦           ¦   ¦       v1.1.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---apigateway
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---apigeeregistry
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---apikeys
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---apim
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---appengine
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---apphub
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---appsactivity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---area120tables
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---areainsights
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---artifactregistry
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---assuredworkloads
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---authorizedbuyersmarketplace
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---backupdr
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---baremetalsolution
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---batch
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---beyondcorp
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---biglake
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigquery
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigqueryconnection
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigquerydatapolicy
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigquerydatatransfer
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigqueryreservation
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha2.d.ts
+¦   ¦           ¦   ¦       v1alpha2.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---bigtableadmin
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---billingbudgets
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---binaryauthorization
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---blockchainnodeengine
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---blogger
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---books
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---businessprofileperformance
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---calendar
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---certificatemanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---chat
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---checks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---chromemanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---chromepolicy
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---chromeuxreport
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---civicinfo
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---classroom
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudasset
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1p1beta1.d.ts
+¦   ¦           ¦   ¦       v1p1beta1.js
+¦   ¦           ¦   ¦       v1p4beta1.d.ts
+¦   ¦           ¦   ¦       v1p4beta1.js
+¦   ¦           ¦   ¦       v1p5beta1.d.ts
+¦   ¦           ¦   ¦       v1p5beta1.js
+¦   ¦           ¦   ¦       v1p7beta1.d.ts
+¦   ¦           ¦   ¦       v1p7beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudbilling
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudbuild
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1alpha2.d.ts
+¦   ¦           ¦   ¦       v1alpha2.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudchannel
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudcontrolspartner
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---clouddebugger
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---clouddeploy
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---clouderrorreporting
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudfunctions
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2alpha.d.ts
+¦   ¦           ¦   ¦       v2alpha.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudidentity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudiot
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudkms
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudprofiler
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudresourcemanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudscheduler
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudsearch
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudshell
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudsupport
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudtasks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta2.d.ts
+¦   ¦           ¦   ¦       v2beta2.js
+¦   ¦           ¦   ¦       v2beta3.d.ts
+¦   ¦           ¦   ¦       v2beta3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---cloudtrace
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---composer
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---compute
+¦   ¦           ¦   ¦       alpha.d.ts
+¦   ¦           ¦   ¦       alpha.js
+¦   ¦           ¦   ¦       beta.d.ts
+¦   ¦           ¦   ¦       beta.js
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---config
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---connectors
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---contactcenteraiplatform
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---contactcenterinsights
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---container
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---containeranalysis
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---content
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.1.d.ts
+¦   ¦           ¦   ¦       v2.1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---contentwarehouse
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---css
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---customsearch
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datacatalog
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dataflow
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1b3.d.ts
+¦   ¦           ¦   ¦       v1b3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dataform
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datafusion
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datalabeling
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datalineage
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datamigration
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datapipelines
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dataplex
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dataportability
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dataproc
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datastore
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta3.d.ts
+¦   ¦           ¦   ¦       v1beta3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---datastream
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---deploymentmanager
+¦   ¦           ¦   ¦       alpha.d.ts
+¦   ¦           ¦   ¦       alpha.js
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---developerconnect
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dfareporting
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.3.d.ts
+¦   ¦           ¦   ¦       v3.3.js
+¦   ¦           ¦   ¦       v3.4.d.ts
+¦   ¦           ¦   ¦       v3.4.js
+¦   ¦           ¦   ¦       v3.5.d.ts
+¦   ¦           ¦   ¦       v3.5.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dialogflow
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       v3beta1.d.ts
+¦   ¦           ¦   ¦       v3beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---digitalassetlinks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---discovery
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---discoveryengine
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---displayvideo
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v1dev.d.ts
+¦   ¦           ¦   ¦       v1dev.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dlp
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---dns
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---docs
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---documentai
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v1beta3.d.ts
+¦   ¦           ¦   ¦       v1beta3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---domains
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha2.d.ts
+¦   ¦           ¦   ¦       v1alpha2.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---domainsrdap
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---doubleclickbidmanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.1.d.ts
+¦   ¦           ¦   ¦       v1.1.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---doubleclicksearch
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---drive
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---driveactivity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---drivelabels
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---essentialcontacts
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---eventarc
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---factchecktools
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---fcm
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---fcmdata
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---file
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebase
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebaseappcheck
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebaseappdistribution
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebasedatabase
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebasedataconnect
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebasedynamiclinks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebasehosting
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebaseml
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebaserules
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firebasestorage
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---firestore
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---fitness
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---forms
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---games
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gamesConfiguration
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1configuration.d.ts
+¦   ¦           ¦   ¦       v1configuration.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gameservices
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gamesManagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1management.d.ts
+¦   ¦           ¦   ¦       v1management.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---genomics
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha2.d.ts
+¦   ¦           ¦   ¦       v1alpha2.js
+¦   ¦           ¦   ¦       v2alpha1.d.ts
+¦   ¦           ¦   ¦       v2alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gkebackup
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gkehub
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1alpha2.d.ts
+¦   ¦           ¦   ¦       v1alpha2.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2alpha.d.ts
+¦   ¦           ¦   ¦       v2alpha.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gkeonprem
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gmail
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---gmailpostmastertools
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---groupsmigration
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---groupssettings
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---healthcare
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---homegraph
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---iam
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---iamcredentials
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---iap
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ideahub
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---identitytoolkit
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ids
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---indexing
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---integrations
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---jobs
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       v3p1beta1.d.ts
+¦   ¦           ¦   ¦       v3p1beta1.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---keep
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---kgsearch
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---kmsinventory
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---language
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---libraryagent
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---licensing
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---lifesciences
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---localservices
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---logging
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---looker
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---managedidentities
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---managedkafka
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---manufacturers
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---marketingplatformadmin
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---meet
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---memcache
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---merchantapi
+¦   ¦           ¦   ¦       accounts_v1beta.d.ts
+¦   ¦           ¦   ¦       accounts_v1beta.js
+¦   ¦           ¦   ¦       conversions_v1beta.d.ts
+¦   ¦           ¦   ¦       conversions_v1beta.js
+¦   ¦           ¦   ¦       datasources_v1beta.d.ts
+¦   ¦           ¦   ¦       datasources_v1beta.js
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       inventories_v1beta.d.ts
+¦   ¦           ¦   ¦       inventories_v1beta.js
+¦   ¦           ¦   ¦       lfp_v1beta.d.ts
+¦   ¦           ¦   ¦       lfp_v1beta.js
+¦   ¦           ¦   ¦       notifications_v1beta.d.ts
+¦   ¦           ¦   ¦       notifications_v1beta.js
+¦   ¦           ¦   ¦       products_v1beta.d.ts
+¦   ¦           ¦   ¦       products_v1beta.js
+¦   ¦           ¦   ¦       promotions_v1beta.d.ts
+¦   ¦           ¦   ¦       promotions_v1beta.js
+¦   ¦           ¦   ¦       quota_v1beta.d.ts
+¦   ¦           ¦   ¦       quota_v1beta.js
+¦   ¦           ¦   ¦       reports_v1beta.d.ts
+¦   ¦           ¦   ¦       reports_v1beta.js
+¦   ¦           ¦   ¦       reviews_v1beta.d.ts
+¦   ¦           ¦   ¦       reviews_v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---metastore
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2alpha.d.ts
+¦   ¦           ¦   ¦       v2alpha.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---migrationcenter
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ml
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---monitoring
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessaccountmanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessbusinesscalls
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessbusinessinformation
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinesslodging
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessnotifications
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessplaceactions
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessqanda
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---mybusinessverifications
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---netapp
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---networkconnectivity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---networkmanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---networksecurity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---networkservices
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---notebooks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---oauth2
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ondemandscanning
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---oracledatabase
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---orgpolicy
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---osconfig
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---oslogin
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pagespeedonline
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v5.d.ts
+¦   ¦           ¦   ¦       v5.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---parallelstore
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---paymentsresellersubscription
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---people
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---places
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---playablelocations
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---playcustomapp
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---playdeveloperreporting
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---playgrouping
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---playintegrity
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---plus
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---policyanalyzer
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---policysimulator
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---policytroubleshooter
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pollen
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---poly
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---privateca
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---prod_tt_sasportal
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---publicca
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pubsub
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1a.d.ts
+¦   ¦           ¦   ¦       v1beta1a.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pubsublite
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---rapidmigrationassessment
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---readerrevenuesubscriptionlinking
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---realtimebidding
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---recaptchaenterprise
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---recommendationengine
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---recommender
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---redis
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---remotebuildexecution
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---reseller
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---resourcesettings
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---retail
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2alpha.d.ts
+¦   ¦           ¦   ¦       v2alpha.js
+¦   ¦           ¦   ¦       v2beta.d.ts
+¦   ¦           ¦   ¦       v2beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---run
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---runtimeconfig
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---safebrowsing
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       v5.d.ts
+¦   ¦           ¦   ¦       v5.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sasportal
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---script
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---searchads360
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v0.d.ts
+¦   ¦           ¦   ¦       v0.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---searchconsole
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---secretmanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---securitycenter
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v1p1alpha1.d.ts
+¦   ¦           ¦   ¦       v1p1alpha1.js
+¦   ¦           ¦   ¦       v1p1beta1.d.ts
+¦   ¦           ¦   ¦       v1p1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---securityposture
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---serviceconsumermanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---servicecontrol
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---servicedirectory
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---servicemanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---servicenetworking
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---serviceusage
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sheets
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v4.d.ts
+¦   ¦           ¦   ¦       v4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---siteVerification
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---slides
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---smartdevicemanagement
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---solar
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sourcerepo
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---spanner
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---speech
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1p1beta1.d.ts
+¦   ¦           ¦   ¦       v1p1beta1.js
+¦   ¦           ¦   ¦       v2beta1.d.ts
+¦   ¦           ¦   ¦       v2beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sql
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta4.d.ts
+¦   ¦           ¦   ¦       v1beta4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sqladmin
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta4.d.ts
+¦   ¦           ¦   ¦       v1beta4.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---storage
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---storagetransfer
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---streetviewpublish
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---sts
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---tagmanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---tasks
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---testing
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---texttospeech
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---toolresults
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1beta3.d.ts
+¦   ¦           ¦   ¦       v1beta3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---tpu
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v2alpha1.d.ts
+¦   ¦           ¦   ¦       v2alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---trafficdirector
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---transcoder
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---translate
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       v3beta1.d.ts
+¦   ¦           ¦   ¦       v3beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---travelimpactmodel
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vault
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vectortile
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---verifiedaccess
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---versionhistory
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---videointelligence
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta2.d.ts
+¦   ¦           ¦   ¦       v1beta2.js
+¦   ¦           ¦   ¦       v1p1beta1.d.ts
+¦   ¦           ¦   ¦       v1p1beta1.js
+¦   ¦           ¦   ¦       v1p2beta1.d.ts
+¦   ¦           ¦   ¦       v1p2beta1.js
+¦   ¦           ¦   ¦       v1p3beta1.d.ts
+¦   ¦           ¦   ¦       v1p3beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vision
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1p1beta1.d.ts
+¦   ¦           ¦   ¦       v1p1beta1.js
+¦   ¦           ¦   ¦       v1p2beta1.d.ts
+¦   ¦           ¦   ¦       v1p2beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vmmigration
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha1.d.ts
+¦   ¦           ¦   ¦       v1alpha1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vmwareengine
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---vpcaccess
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta1.d.ts
+¦   ¦           ¦   ¦       v1beta1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---walletobjects
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---webfonts
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---webmasters
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---webrisk
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---websecurityscanner
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1alpha.d.ts
+¦   ¦           ¦   ¦       v1alpha.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---workflowexecutions
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---workflows
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---workloadmanager
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---workspaceevents
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---workstations
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v1beta.d.ts
+¦   ¦           ¦   ¦       v1beta.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---youtube
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v3.d.ts
+¦   ¦           ¦   ¦       v3.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---youtubeAnalytics
+¦   ¦           ¦   ¦       index.d.ts
+¦   ¦           ¦   ¦       index.js
+¦   ¦           ¦   ¦       v1.d.ts
+¦   ¦           ¦   ¦       v1.js
+¦   ¦           ¦   ¦       v2.d.ts
+¦   ¦           ¦   ¦       v2.js
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---youtubereporting
+¦   ¦           ¦           index.d.ts
+¦   ¦           ¦           index.js
+¦   ¦           ¦           v1.d.ts
+¦   ¦           ¦           v1.js
+¦   ¦           ¦           
+¦   ¦           +---generator
+¦   ¦                   disclaimer.d.ts
+¦   ¦                   disclaimer.js
+¦   ¦                   docs.d.ts
+¦   ¦                   docs.js
+¦   ¦                   download.d.ts
+¦   ¦                   download.js
+¦   ¦                   filters.d.ts
+¦   ¦                   filters.js
+¦   ¦                   generator.d.ts
+¦   ¦                   generator.js
+¦   ¦                   samplegen.d.ts
+¦   ¦                   samplegen.js
+¦   ¦                   synth.d.ts
+¦   ¦                   synth.js
+¦   ¦                   
+¦   +---googleapis-common
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦               api.d.ts
+¦   ¦               api.js
+¦   ¦               apiIndex.d.ts
+¦   ¦               apiIndex.js
+¦   ¦               apirequest.d.ts
+¦   ¦               apirequest.js
+¦   ¦               authplus.d.ts
+¦   ¦               authplus.js
+¦   ¦               discovery.d.ts
+¦   ¦               discovery.js
+¦   ¦               endpoint.d.ts
+¦   ¦               endpoint.js
+¦   ¦               http2.d.ts
+¦   ¦               http2.js
+¦   ¦               index.d.ts
+¦   ¦               index.js
+¦   ¦               isbrowser.d.ts
+¦   ¦               isbrowser.js
+¦   ¦               schema.d.ts
+¦   ¦               schema.js
+¦   ¦               
+¦   +---gopd
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   gOPD.d.ts
+¦   ¦   ¦   gOPD.js
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---gtoken
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦               index.d.ts
+¦   ¦               index.js
+¦   ¦               
+¦   +---has-symbols
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   shams.d.ts
+¦   ¦   ¦   shams.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦       ¦   index.js
+¦   ¦       ¦   tests.js
+¦   ¦       ¦   
+¦   ¦       +---shams
+¦   ¦               core-js.js
+¦   ¦               get-own-property-symbols.js
+¦   ¦               
+¦   +---hasown
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦           FUNDING.yml
+¦   ¦           
+¦   +---https-proxy-agent
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---dist
+¦   ¦           index.d.ts
+¦   ¦           index.d.ts.map
+¦   ¦           index.js
+¦   ¦           index.js.map
+¦   ¦           parse-proxy-response.d.ts
+¦   ¦           parse-proxy-response.d.ts.map
+¦   ¦           parse-proxy-response.js
+¦   ¦           parse-proxy-response.js.map
+¦   ¦           
+¦   +---is-stream
+¦   ¦       index.d.ts
+¦   ¦       index.js
+¦   ¦       license
+¦   ¦       package.json
+¦   ¦       readme.md
+¦   ¦       
+¦   +---json-bigint
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦           parse.js
+¦   ¦           stringify.js
+¦   ¦           
+¦   +---jwa
+¦   ¦       index.js
+¦   ¦       LICENSE
+¦   ¦       package.json
+¦   ¦       README.md
+¦   ¦       
+¦   +---jws
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   readme.md
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦           data-stream.js
+¦   ¦           sign-stream.js
+¦   ¦           tostring.js
+¦   ¦           verify-stream.js
+¦   ¦           
+¦   +---math-intrinsics
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   abs.d.ts
+¦   ¦   ¦   abs.js
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   floor.d.ts
+¦   ¦   ¦   floor.js
+¦   ¦   ¦   isFinite.d.ts
+¦   ¦   ¦   isFinite.js
+¦   ¦   ¦   isInteger.d.ts
+¦   ¦   ¦   isInteger.js
+¦   ¦   ¦   isNaN.d.ts
+¦   ¦   ¦   isNaN.js
+¦   ¦   ¦   isNegativeZero.d.ts
+¦   ¦   ¦   isNegativeZero.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   max.d.ts
+¦   ¦   ¦   max.js
+¦   ¦   ¦   min.d.ts
+¦   ¦   ¦   min.js
+¦   ¦   ¦   mod.d.ts
+¦   ¦   ¦   mod.js
+¦   ¦   ¦   package.json
+¦   ¦   ¦   pow.d.ts
+¦   ¦   ¦   pow.js
+¦   ¦   ¦   README.md
+¦   ¦   ¦   round.d.ts
+¦   ¦   ¦   round.js
+¦   ¦   ¦   sign.d.ts
+¦   ¦   ¦   sign.js
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---constants
+¦   ¦   ¦       maxArrayLength.d.ts
+¦   ¦   ¦       maxArrayLength.js
+¦   ¦   ¦       maxSafeInteger.d.ts
+¦   ¦   ¦       maxSafeInteger.js
+¦   ¦   ¦       maxValue.d.ts
+¦   ¦   ¦       maxValue.js
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---ms
+¦   ¦       index.js
+¦   ¦       license.md
+¦   ¦       package.json
+¦   ¦       readme.md
+¦   ¦       
+¦   +---node-fetch
+¦   ¦   ¦   browser.js
+¦   ¦   ¦   LICENSE.md
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦           index.es.js
+¦   ¦           index.js
+¦   ¦           index.mjs
+¦   ¦           
+¦   +---nodemailer
+¦   ¦   ¦   .gitattributes
+¦   ¦   ¦   .ncurc.js
+¦   ¦   ¦   .prettierrc.js
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   CODE_OF_CONDUCT.md
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   SECURITY.txt
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦       ¦   nodemailer.js
+¦   ¦       ¦   
+¦   ¦       +---addressparser
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---base64
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---dkim
+¦   ¦       ¦       index.js
+¦   ¦       ¦       message-parser.js
+¦   ¦       ¦       relaxed-body.js
+¦   ¦       ¦       sign.js
+¦   ¦       ¦       
+¦   ¦       +---fetch
+¦   ¦       ¦       cookies.js
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---json-transport
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---mail-composer
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---mailer
+¦   ¦       ¦       index.js
+¦   ¦       ¦       mail-message.js
+¦   ¦       ¦       
+¦   ¦       +---mime-funcs
+¦   ¦       ¦       index.js
+¦   ¦       ¦       mime-types.js
+¦   ¦       ¦       
+¦   ¦       +---mime-node
+¦   ¦       ¦       index.js
+¦   ¦       ¦       last-newline.js
+¦   ¦       ¦       le-unix.js
+¦   ¦       ¦       le-windows.js
+¦   ¦       ¦       
+¦   ¦       +---punycode
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---qp
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---sendmail-transport
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---ses-transport
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---shared
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---smtp-connection
+¦   ¦       ¦       data-stream.js
+¦   ¦       ¦       http-proxy-client.js
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---smtp-pool
+¦   ¦       ¦       index.js
+¦   ¦       ¦       pool-resource.js
+¦   ¦       ¦       
+¦   ¦       +---smtp-transport
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---stream-transport
+¦   ¦       ¦       index.js
+¦   ¦       ¦       
+¦   ¦       +---well-known
+¦   ¦       ¦       index.js
+¦   ¦       ¦       services.json
+¦   ¦       ¦       
+¦   ¦       +---xoauth2
+¦   ¦               index.js
+¦   ¦               
+¦   +---object-inspect
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package-support.json
+¦   ¦   ¦   package.json
+¦   ¦   ¦   readme.markdown
+¦   ¦   ¦   test-core-js.js
+¦   ¦   ¦   util.inspect.js
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---example
+¦   ¦   ¦       all.js
+¦   ¦   ¦       circular.js
+¦   ¦   ¦       fn.js
+¦   ¦   ¦       inspect.js
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦       ¦   bigint.js
+¦   ¦       ¦   circular.js
+¦   ¦       ¦   deep.js
+¦   ¦       ¦   element.js
+¦   ¦       ¦   err.js
+¦   ¦       ¦   fakes.js
+¦   ¦       ¦   fn.js
+¦   ¦       ¦   global.js
+¦   ¦       ¦   has.js
+¦   ¦       ¦   holes.js
+¦   ¦       ¦   indent-option.js
+¦   ¦       ¦   inspect.js
+¦   ¦       ¦   lowbyte.js
+¦   ¦       ¦   number.js
+¦   ¦       ¦   quoteStyle.js
+¦   ¦       ¦   toStringTag.js
+¦   ¦       ¦   undef.js
+¦   ¦       ¦   values.js
+¦   ¦       ¦   
+¦   ¦       +---browser
+¦   ¦               dom.js
+¦   ¦               
+¦   +---qs
+¦   ¦   ¦   .editorconfig
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   LICENSE.md
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---dist
+¦   ¦   ¦       qs.js
+¦   ¦   ¦       
+¦   ¦   +---lib
+¦   ¦   ¦       formats.js
+¦   ¦   ¦       index.js
+¦   ¦   ¦       parse.js
+¦   ¦   ¦       stringify.js
+¦   ¦   ¦       utils.js
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           empty-keys-cases.js
+¦   ¦           parse.js
+¦   ¦           stringify.js
+¦   ¦           utils.js
+¦   ¦           
+¦   +---safe-buffer
+¦   ¦       index.d.ts
+¦   ¦       index.js
+¦   ¦       LICENSE
+¦   ¦       package.json
+¦   ¦       README.md
+¦   ¦       
+¦   +---side-channel
+¦   ¦   ¦   .editorconfig
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---side-channel-list
+¦   ¦   ¦   .editorconfig
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   list.d.ts
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---side-channel-map
+¦   ¦   ¦   .editorconfig
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---side-channel-weakmap
+¦   ¦   ¦   .editorconfig
+¦   ¦   ¦   .eslintrc
+¦   ¦   ¦   .nycrc
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   index.d.ts
+¦   ¦   ¦   index.js
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   tsconfig.json
+¦   ¦   ¦   
+¦   ¦   +---.github
+¦   ¦   ¦       FUNDING.yml
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦           index.js
+¦   ¦           
+¦   +---tr46
+¦   ¦   ¦   .npmignore
+¦   ¦   ¦   index.js
+¦   ¦   ¦   package.json
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦           .gitkeep
+¦   ¦           mappingTable.json
+¦   ¦           
+¦   +---url-template
+¦   ¦   ¦   .gitmodules
+¦   ¦   ¦   .npmignore
+¦   ¦   ¦   LICENSE
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦   ¦       url-template.js
+¦   ¦   ¦       
+¦   ¦   +---test
+¦   ¦   ¦       index.html
+¦   ¦   ¦       uritemplate-test.js
+¦   ¦   ¦       url-template-test.js
+¦   ¦   ¦       
+¦   ¦   +---uritemplate-test
+¦   ¦           extended-tests.json
+¦   ¦           json2xml.xslt
+¦   ¦           negative-tests.json
+¦   ¦           README.md
+¦   ¦           spec-examples-by-section.json
+¦   ¦           spec-examples.json
+¦   ¦           transform-json-tests.xslt
+¦   ¦           
+¦   +---uuid
+¦   ¦   ¦   CHANGELOG.md
+¦   ¦   ¦   CONTRIBUTING.md
+¦   ¦   ¦   LICENSE.md
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   wrapper.mjs
+¦   ¦   ¦   
+¦   ¦   +---dist
+¦   ¦       ¦   index.js
+¦   ¦       ¦   md5-browser.js
+¦   ¦       ¦   md5.js
+¦   ¦       ¦   native-browser.js
+¦   ¦       ¦   native.js
+¦   ¦       ¦   nil.js
+¦   ¦       ¦   parse.js
+¦   ¦       ¦   regex.js
+¦   ¦       ¦   rng-browser.js
+¦   ¦       ¦   rng.js
+¦   ¦       ¦   sha1-browser.js
+¦   ¦       ¦   sha1.js
+¦   ¦       ¦   stringify.js
+¦   ¦       ¦   uuid-bin.js
+¦   ¦       ¦   v1.js
+¦   ¦       ¦   v3.js
+¦   ¦       ¦   v35.js
+¦   ¦       ¦   v4.js
+¦   ¦       ¦   v5.js
+¦   ¦       ¦   validate.js
+¦   ¦       ¦   version.js
+¦   ¦       ¦   
+¦   ¦       +---bin
+¦   ¦       ¦       uuid
+¦   ¦       ¦       
+¦   ¦       +---commonjs-browser
+¦   ¦       ¦       index.js
+¦   ¦       ¦       md5.js
+¦   ¦       ¦       native.js
+¦   ¦       ¦       nil.js
+¦   ¦       ¦       parse.js
+¦   ¦       ¦       regex.js
+¦   ¦       ¦       rng.js
+¦   ¦       ¦       sha1.js
+¦   ¦       ¦       stringify.js
+¦   ¦       ¦       v1.js
+¦   ¦       ¦       v3.js
+¦   ¦       ¦       v35.js
+¦   ¦       ¦       v4.js
+¦   ¦       ¦       v5.js
+¦   ¦       ¦       validate.js
+¦   ¦       ¦       version.js
+¦   ¦       ¦       
+¦   ¦       +---esm-browser
+¦   ¦       ¦       index.js
+¦   ¦       ¦       md5.js
+¦   ¦       ¦       native.js
+¦   ¦       ¦       nil.js
+¦   ¦       ¦       parse.js
+¦   ¦       ¦       regex.js
+¦   ¦       ¦       rng.js
+¦   ¦       ¦       sha1.js
+¦   ¦       ¦       stringify.js
+¦   ¦       ¦       v1.js
+¦   ¦       ¦       v3.js
+¦   ¦       ¦       v35.js
+¦   ¦       ¦       v4.js
+¦   ¦       ¦       v5.js
+¦   ¦       ¦       validate.js
+¦   ¦       ¦       version.js
+¦   ¦       ¦       
+¦   ¦       +---esm-node
+¦   ¦               index.js
+¦   ¦               md5.js
+¦   ¦               native.js
+¦   ¦               nil.js
+¦   ¦               parse.js
+¦   ¦               regex.js
+¦   ¦               rng.js
+¦   ¦               sha1.js
+¦   ¦               stringify.js
+¦   ¦               v1.js
+¦   ¦               v3.js
+¦   ¦               v35.js
+¦   ¦               v4.js
+¦   ¦               v5.js
+¦   ¦               validate.js
+¦   ¦               version.js
+¦   ¦               
+¦   +---webidl-conversions
+¦   ¦   ¦   LICENSE.md
+¦   ¦   ¦   package.json
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---lib
+¦   ¦           index.js
+¦   ¦           
+¦   +---whatwg-url
+¦       ¦   LICENSE.txt
+¦       ¦   package.json
+¦       ¦   README.md
+¦       ¦   
+¦       +---lib
+¦               public-api.js
+¦               URL-impl.js
+¦               url-state-machine.js
+¦               URL.js
+¦               utils.js
+¦               
++---RooCorePackage
+¦   +---.roo
+¦           .roomodes
+¦           system-prompt-architect
+¦           system-prompt-ask
+¦           system-prompt-code
+¦           system-prompt-debug
+¦           system-prompt-test
+¦           
++---vendor
++---wedding-photo-approver
+        config.json
+        index.js
+        oauth_credentials.json
+        README.md
+        token.json
+        
