@@ -167,12 +167,15 @@ img {
 }
 
 .btn--primary {
-  background-color: var(--color-teal);
+  background-color: #006666; /* Darker than var(--color-teal) */
   color: var(--color-white);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn--primary:hover {
-  background-color: #006666;
+  background-color: #005252; /* Even darker on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Section */
