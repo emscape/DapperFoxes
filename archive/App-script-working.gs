@@ -35,7 +35,7 @@ const CONFIG = {
   // Admin credentials (basic security)
   // In a production environment, consider using more secure authentication
   ADMIN_USERNAME: 'admin',
-  ADMIN_PASSWORD: 'wedding2025'
+  ADMIN_PASSWORD: ''
 };
 
 /**

@@ -4,21 +4,14 @@ This log details the file reorganization performed on April 24, 2025.
 
 ## Directory Creation:
 - Created `src/`
-- Created `src/pages/`
 - Created `src/js/`
 - Created `scripts/`
 - (`docs/` already existed)
 
 ## File Moves:
 
-**HTML Files (Moved to `src/pages/`)**
-- `index.html` → `src/pages/index.html`
-- `events.html` → `src/pages/events.html`
-- `poll.html` → `src/pages/poll.html`
-- `registry.html` → `src/pages/registry.html`
-- `rsvp.html` → `src/pages/rsvp.html`
-- `photos.html` → `src/pages/photos.html`
-- `AdminInterface.html` → `src/pages/AdminInterface.html`
+**HTML Files**
+- The HTML pages stay at the repository root (GitHub Pages serves them from there).
 
 **JavaScript Files**
 - `js/main.js` → `src/js/main.js`
@@ -42,13 +35,12 @@ This log details the file reorganization performed on April 24, 2025.
 
 ## File Content Updates:
 
-**HTML Files (`src/pages/*.html`)**
-- Updated CSS link: `href="css/main.css"` → `href="../css/main.css"` (in 6 files)
-- Updated JS link: `src="js/main.js"` → `src="../js/main.js"` (in 5 files)
-- Updated Favicon link: `href="foxes-favicon.ico"` → `href="../foxes-favicon.ico"` (in 6 files)
+**HTML Files (repository root)**
+- Updated JS link: `src="js/main.js"` → `src="src/js/main.js"`
+- Four pages link the stylesheet and favicon as `../css/main.css` and `../foxes-favicon.ico`; from the site root these resolve to `/css/main.css` and `/foxes-favicon.ico`.
 
-**JavaScript File (`src/js/main.js`)**
-- Updated fetch path for official photos: `fetch(\`official-photos.json?_=\${cacheBuster}\`)` → `fetch(\`../../official-photos.json?_=\${cacheBuster}\`)`
+**JavaScript Files (`src/js/`)**
+- Added `src/js/paths.js` to centralize Apps Script URLs and asset paths; `official-photos.json` is loaded from the site root (`/official-photos.json`).
 
 **TypeScript Config (`tsconfig.json`)**
 - Updated include path: `"js/*.js"` → `"src/js/*.js"`
