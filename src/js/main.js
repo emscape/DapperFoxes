@@ -157,7 +157,7 @@ async function fetchPollResults() {
       console.log('Poll results found:', data.locations);
       return { locations: data.locations, totalVotes: data.totalVotes };
     } else {
-      console.warn('Poll results not found in response, using fallback data');
+      console.warn('Poll results not found in response, retrying with a direct request');
       console.log('Response data keys:', Object.keys(data));
       
       // Try to make a direct request to the server for poll results
@@ -170,31 +170,11 @@ async function fetchPollResults() {
         console.log('Poll results found in direct response:', directData.locations);
         return { locations: directData.locations, totalVotes: directData.totalVotes };
       }
-      // Fallback to mock data if the structure is unexpected
-      return {
-        locations: [
-          { name: 'England', votes: 12, id: 'england' },
-          { name: 'Los Angeles', votes: 8, id: 'la' },
-          { name: 'Minnesota', votes: 15, id: 'minnesota' },
-          { name: 'Other', votes: 5, id: 'other' }
-        ],
-        totalVotes: 40
-      };
+      throw new Error('Poll results were missing from the response.');
     }
   } catch (error) {
     console.error('Error fetching poll results:', error);
-    
-    // Fallback to mock data if API fetch fails
-    console.log('Using fallback mock data for poll results');
-    return {
-      locations: [
-        { name: 'England', votes: 12, id: 'england' },
-        { name: 'Los Angeles', votes: 8, id: 'la' },
-        { name: 'Minnesota', votes: 15, id: 'minnesota' },
-        { name: 'Other', votes: 5, id: 'other' }
-      ],
-      totalVotes: 40
-    };
+    throw error;
   }
 }
 
@@ -850,12 +830,7 @@ async function fetchComments() {
 
   } catch (error) {
     console.error('Error fetching comments:', error);
-    // Fallback to mock data if API fetch fails
-    console.log('Using fallback mock data for comments');
-    return [
-      { author: 'Sample User 1', date: '2025-03-25', body: 'This is a sample comment.' },
-      { author: 'Sample User 2', date: '2025-03-24', body: 'Another example comment here!' }
-    ];
+    throw error;
   }
 }
 
