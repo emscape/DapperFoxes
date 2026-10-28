@@ -1,5 +1,7 @@
+import * as paths from './paths.js';
+
 /**
- * DapperFoxes Wedding Website
+ * DapperFoxes weddingwebsite
  * Main JavaScript File
  */
 
@@ -128,16 +130,16 @@ async function fetchPollResults() {
   console.log('fetchPollResults called');
   
   // Google Apps Script Web App URL - same as used for comments
-  // Update this URL with the new deployment URL after updating the Google Apps Script
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
-  
+  // Update this URL in paths.js if the deployment URL changes
+  const WEB_APP_URL = paths.POLL_COMMENTS_APP_URL;
+
   try {
     // Add poll=true parameter to request poll results
     // Add cache-busting parameter to prevent caching
     const cacheBuster = new Date().getTime();
     console.log('Fetching poll results with URL:', `${WEB_APP_URL}?poll=true&_=${cacheBuster}`);
-    const response = await fetch(`${WEB_APP_URL}?poll=true&_=${cacheBuster}`);
-    
+    const response = await fetch(`${WEB_APP_URL}?poll=true&_=${cacheBuster}`); // Use the constant
+
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
     }
@@ -155,12 +157,12 @@ async function fetchPollResults() {
       console.log('Poll results found:', data.locations);
       return { locations: data.locations, totalVotes: data.totalVotes };
     } else {
-      console.warn('Poll results not found in response, using fallback data');
+      console.warn('Poll results not found in response, retrying with a direct request');
       console.log('Response data keys:', Object.keys(data));
       
       // Try to make a direct request to the server for poll results
       console.log('Attempting direct request for poll results...');
-      const directResponse = await fetch(`${WEB_APP_URL}?poll=true&direct=true&_=${new Date().getTime()}`);
+      const directResponse = await fetch(`${WEB_APP_URL}?poll=true&direct=true&_=${new Date().getTime()}`); // Use the constant
       const directData = await directResponse.json();
       console.log('Direct response received:', directData);
       
@@ -168,31 +170,11 @@ async function fetchPollResults() {
         console.log('Poll results found in direct response:', directData.locations);
         return { locations: directData.locations, totalVotes: directData.totalVotes };
       }
-      // Fallback to mock data if the structure is unexpected
-      return {
-        locations: [
-          { name: 'England', votes: 12, id: 'england' },
-          { name: 'Los Angeles', votes: 8, id: 'la' },
-          { name: 'Minnesota', votes: 15, id: 'minnesota' },
-          { name: 'Other', votes: 5, id: 'other' }
-        ],
-        totalVotes: 40
-      };
+      throw new Error('Poll results were missing from the response.');
     }
   } catch (error) {
     console.error('Error fetching poll results:', error);
-    
-    // Fallback to mock data if API fetch fails
-    console.log('Using fallback mock data for poll results');
-    return {
-      locations: [
-        { name: 'England', votes: 12, id: 'england' },
-        { name: 'Los Angeles', votes: 8, id: 'la' },
-        { name: 'Minnesota', votes: 15, id: 'minnesota' },
-        { name: 'Other', votes: 5, id: 'other' }
-      ],
-      totalVotes: 40
-    };
+    throw error;
   }
 }
 
@@ -538,12 +520,12 @@ async function loadOfficialPhotos() { // Make the function async
   officialGalleryGrid.innerHTML = '<p class="gallery-loading">Loading Center Stage photos...</p>'; // Add loading message
 
   try {
-    // Fetch the sorted photo list from the JSON file
+    // Fetch the sorted photo list from the JSON file (path defined in paths.js)
     // Add cache-busting parameter
     const cacheBuster = new Date().getTime();
-    const response = await fetch(`official-photos.json?_=${cacheBuster}`);
+    const response = await fetch(`${paths.OFFICIAL_PHOTOS_JSON_PATH}?_=${cacheBuster}`); // Use the constant
     if (!response.ok) {
-      throw new Error(`HTTP error ${response.status} fetching official-photos.json`);
+      throw new Error(`HTTP error ${response.status} fetching ${paths.OFFICIAL_PHOTOS_JSON_PATH}`);
     }
     const officialPhotosData = await response.json(); // This is already sorted by the build script
 
@@ -589,8 +571,8 @@ async function initPhotoGallery() { // Make function async to use await
     return;
   }
 
-  // URL of the deployed Google Apps Script Web App for GUEST photos
-  const PHOTO_APP_URL = 'https://script.google.com/macros/s/AKfycbzIWWruyUl574PtFqglVXNU3RPmuKrsQSPYBTSzLvJVou81EkZJX7voqq5QONWC2nwZ/exec';
+  // URL of the deployed Google Apps Script Web App for GUEST photos (defined in paths.js)
+  const PHOTO_APP_URL = paths.GUEST_PHOTOS_APP_URL;
 
   // Display loading message for GUEST photos
   galleryGrid.innerHTML = '<p class="gallery-loading">Loading Crowd View photos...</p>';
@@ -599,7 +581,7 @@ async function initPhotoGallery() { // Make function async to use await
     // Fetch GUEST photos
     // Add cache-busting parameter
     const guestCacheBuster = new Date().getTime();
-    const response = await fetch(`${PHOTO_APP_URL}?_=${guestCacheBuster}`);
+    const response = await fetch(`${PHOTO_APP_URL}?_=${guestCacheBuster}`); // Use the constant
 
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
@@ -819,14 +801,14 @@ function initComments() {
  * @return {Promise<Array>} Promise resolving to array of comment objects
  */
 async function fetchComments() {
-  // Google Apps Script Web App URL
-  // Update this URL with the new deployment URL after updating the Google Apps Script
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxE-r-2jO4jgRaVcVWO7SSSJY9gwTDmsDnLsHkOndI0FqpTdMj2YT1odmtMg8pRVzWScA/exec';
+  // Google Apps Script Web App URL (defined in paths.js)
+  // Update this URL in paths.js if the deployment URL changes
+  const WEB_APP_URL = paths.POLL_COMMENTS_APP_URL;
 
   try {
     // Add cache-busting parameter
     const cacheBuster = new Date().getTime();
-    const response = await fetch(`${WEB_APP_URL}?_=${cacheBuster}`); // Fetch approved comments by default
+    const response = await fetch(`${WEB_APP_URL}?_=${cacheBuster}`); // Use the constant, fetch approved comments by default
 
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
@@ -848,12 +830,7 @@ async function fetchComments() {
 
   } catch (error) {
     console.error('Error fetching comments:', error);
-    // Fallback to mock data if API fetch fails
-    console.log('Using fallback mock data for comments');
-    return [
-      { author: 'Sample User 1', date: '2025-03-25', body: 'This is a sample comment.' },
-      { author: 'Sample User 2', date: '2025-03-24', body: 'Another example comment here!' }
-    ];
+    throw error;
   }
 }
 
@@ -879,11 +856,11 @@ function renderComments(comments, container) {
 
     commentCard.innerHTML = `
       <div class="comment-header">
-        <h4 class="comment-author">${comment.author || 'Anonymous'}</h4>
-        <span class="comment-date">${formatDate(comment.date)}</span>
+        <h4 class="comment-author">${comment.name || 'Anonymous'}</h4>
+        <span class="comment-date">${formatDate(comment.timestamp)}</span>
       </div>
       <div class="comment-body">
-        <p>${comment.body || ''}</p>
+        <p>${comment.text || ''}</p>
       </div>
     `;
     container.appendChild(commentCard);
