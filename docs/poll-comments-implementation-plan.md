@@ -26,7 +26,7 @@ flowchart TD
     B -->|Data Access| C[Backend Service]
     C -->|Admin Interface| D[Comment Approval UI]
     D -->|Approved Comments| E[Database]
-    E -->|API| F[Wedding Website]
+    E -->|API| F[weddingwebsite]
     F -->|Display| G[Poll Page]
 ```
 

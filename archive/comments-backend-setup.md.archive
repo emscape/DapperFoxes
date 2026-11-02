@@ -43,7 +43,7 @@ The comments system uses:
 ### Admin Credentials
 
 - Username: `admin`
-- Password: `wedding2025`
+- Password: (removed)
 
 You can change these in the `comments-backend.gs` file in the `CONFIG` object.
 

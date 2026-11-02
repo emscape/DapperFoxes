@@ -39,13 +39,6 @@ The comments system uses:
 4. Review pending comments and click "Approve" or "Reject" for each one
 5. Approved comments will automatically appear on the website
 
-### Admin Credentials
-
-- Username: `admin`
-- Password: `wedding2025`
-
-You can change these in the `comments-backend.gs` file in the `CONFIG` object.
-
 ## Troubleshooting
 
 If comments are not appearing on the website:
