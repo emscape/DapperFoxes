@@ -2,8 +2,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const exifParser = require('exif-parser');
 
-const photoDir = path.join(__dirname, 'images', 'wedding website');
-const outputFile = path.join(__dirname, 'official-photos.json');
+const photoDir = path.join(__dirname, '..', 'images', 'weddingwebsite');
+const outputFile = path.join(__dirname, '..', 'official-photos.json');
 
 async function generatePhotoList() {
   console.log(`Scanning directory: ${photoDir}`);
@@ -35,7 +35,7 @@ async function generatePhotoList() {
           }
 
           // Use relative path for the website
-          const relativePath = path.join('images', 'wedding website', file).replace(/\\/g, '/');
+          const relativePath = path.join('images', 'weddingwebsite', file).replace(/\\/g, '/');
 
           photoData.push({
             url: relativePath,
@@ -46,7 +46,7 @@ async function generatePhotoList() {
         } catch (err) {
           console.error(`Error processing file ${file}: ${err.message}`);
           // Still add the photo even if EXIF fails, but without a date
-           const relativePath = path.join('images', 'wedding website', file).replace(/\\/g, '/');
+           const relativePath = path.join('images', 'weddingwebsite', file).replace(/\\/g, '/');
            photoData.push({ url: relativePath, caption: '', date: null });
         }
       } else {
@@ -76,6 +76,7 @@ async function generatePhotoList() {
 
   } catch (err) {
     console.error(`Error generating photo list: ${err}`);
+    process.exitCode = 1;
   }
 }
 

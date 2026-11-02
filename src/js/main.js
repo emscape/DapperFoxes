@@ -854,15 +854,24 @@ function renderComments(comments, container) {
     const commentCard = document.createElement('div');
     commentCard.className = 'comment-card';
 
-    commentCard.innerHTML = `
-      <div class="comment-header">
-        <h4 class="comment-author">${comment.name || 'Anonymous'}</h4>
-        <span class="comment-date">${formatDate(comment.timestamp)}</span>
-      </div>
-      <div class="comment-body">
-        <p>${comment.text || ''}</p>
-      </div>
-    `;
+    // Comment text comes from visitors, so it is set with textContent, never parsed as HTML
+    const header = document.createElement('div');
+    header.className = 'comment-header';
+    const author = document.createElement('h4');
+    author.className = 'comment-author';
+    author.textContent = comment.name || 'Anonymous';
+    const date = document.createElement('span');
+    date.className = 'comment-date';
+    date.textContent = formatDate(comment.timestamp);
+    header.append(author, date);
+
+    const body = document.createElement('div');
+    body.className = 'comment-body';
+    const text = document.createElement('p');
+    text.textContent = comment.text || '';
+    body.appendChild(text);
+
+    commentCard.append(header, body);
     container.appendChild(commentCard);
   });
 }
