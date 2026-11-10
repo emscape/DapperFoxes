@@ -1,0 +1,14 @@
+{
+  "project_name": "DapperFoxes",
+  "session_start": {
+    "custom_notes": [
+      "Static site on GitHub Pages: merging to master publishes www.thedapperfoxes.com",
+      "Never delete master or change the Pages source branch: deleting the source branch turns Pages off",
+      "Backends are Google Apps Script web apps (scripts/*.gs), deployed by hand from the Apps Script editor"
+    ]
+  },
+  "ci_status_check": {
+    "enabled": false,
+    "_note": "No GitHub Actions workflow of its own; Pages builds run only on master, so feature-branch pushes would wait out the timeout"
+  }
+}
